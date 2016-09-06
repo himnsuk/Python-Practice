@@ -8,7 +8,7 @@ def firstNonRepeating(str1):
     count = [0]*256
     while(k >= 0):
         count[ord(str1[k])] += 1
-        if count[ord(str1[k])] == 1:
+        if count[ord(str1[k])] > 1:
             c = str1[k]
         k -= 1
     return c
