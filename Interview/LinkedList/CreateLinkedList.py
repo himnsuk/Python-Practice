@@ -33,6 +33,30 @@ class UnorderedList:
         temp.set_next(self.head)
         self.head = temp
 
+    def append_node(self, new_data):
+        if self.head is None:
+            temp = Node(new_data)
+            self.head = temp
+            return
+        node = self.head
+        while(node.next):
+            node = node.next
+
+        temp = Node(new_data)
+        node.next = temp
+
+    def reverseList(self):
+        p = None
+        c = self.head
+        n = c.next
+        while(n):
+            c.next = p
+            p = c
+            c = n
+            n = n.next
+        c.next = p
+        self.head = c
+
 def print_list(list):
     current = list.head
     while current != None:
@@ -58,3 +82,32 @@ letterList.add_node('a')
 letterList.add_node('b')
 letterList.add_node('c')
 # print_list(letterList)
+letterList2 = UnorderedList()
+
+letterList2.add_node('a')
+letterList2.add_node('b')
+letterList2.add_node('c')
+letterList2.add_node('d')
+letterList2.add_node('a')
+letterList2.add_node('b')
+letterList2.add_node('p')
+
+list1 = UnorderedList()
+list1.append_node(5)
+list1.append_node(7)
+list1.append_node(17)
+list1.append_node(13)
+list1.append_node(11)
+
+list2 = UnorderedList()
+list2.append_node(12)
+list2.append_node(10)
+list2.append_node(2)
+list2.append_node(4)
+list2.append_node(6)
+
+print_list(list1)
+print("\n")
+
+list2.reverseList()
+print_list(list2)
