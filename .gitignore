@@ -39,3 +39,4 @@ Thumbs.db
 # Vim Swap Files
 #################
 *.swp
+__pycache__
