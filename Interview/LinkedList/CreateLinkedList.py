@@ -57,6 +57,23 @@ class UnorderedList:
         c.next = p
         self.head = c
 
+    def reverseGroup(self,head, k):
+        count = 0
+        c = head
+        n = None
+        p = None
+        while(count < k and c is not None):
+            n = c.next
+            c.next = p
+            p = c
+            c = n
+            count += 1
+
+        if n is not None:
+            head.next = self.reverseGroup(n, k)
+
+        return p
+
 def print_list(list):
     current = list.head
     while current != None:
@@ -67,7 +84,7 @@ def print_list(list):
 
 mylist = UnorderedList()
 
-for i in range(10, 120, 10):
+for i in range(120, 10, -10):
     mylist.add_node(i)
 # print_list(mylist)
 # print("\n")
@@ -106,8 +123,10 @@ list2.append_node(2)
 list2.append_node(4)
 list2.append_node(6)
 
-print_list(list1)
-print("\n")
-
-list2.reverseList()
-print_list(list2)
+# print_list(list1)
+# print("\n")
+#
+# list2.reverseList()
+# print_list(list2)
+# mylist.head = mylist.reverseGroup(mylist.head, 3)
+# print_list(mylist)
