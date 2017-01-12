@@ -15,12 +15,15 @@ def matched_girls(arr, girls):
     new_hash = {}
     for girl in girls:
         count = 0
-        girl = ''.join(list(set(girl)))
+        new_girl = girl
         for j in girl:
             if j in given_hash:
                 count += 1
-        new_hash[count] = girl
-        print new_hash
+        new_hash[count] = new_girl
+    keys_container = new_hash.keys()
+    print keys_container
+    for k in range(K):
+        print new_hash[keys_container[k]]
 
 # def requiredHash(string):
 #     given_hash = createHash()
