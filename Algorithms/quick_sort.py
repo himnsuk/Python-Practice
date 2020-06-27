@@ -29,5 +29,3 @@ r = len(arr)
 print(arr)
 quick_sort(arr, l, r-1)
 print(arr)
-
-
