@@ -1,0 +1,4 @@
+class Stack:
+  stack = []
+
+  def 
