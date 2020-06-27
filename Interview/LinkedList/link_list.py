@@ -50,6 +50,10 @@ class LinkedList:
             n = n.next
         print("None")
 
+        while n is not None:
+            print(n.data, end=" -> ")
+            n = n.next
+
 
 if __name__ == "__main__":
     ll = LinkedList()
