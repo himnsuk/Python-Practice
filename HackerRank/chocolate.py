@@ -11,4 +11,4 @@ for a0 in xrange(t):
       chocolate += wrapper/m
       wrapper = wrapper/m + wrapper%m
 
-    print chocolate
+    print(chocolate)
