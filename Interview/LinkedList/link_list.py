@@ -44,10 +44,11 @@ class LinkedList:
 
     def print_linked_list(self):
         n = self.head
-
+        print("(head) ", end = "-> ")
         while n is not None:
             print(n.data, end=" -> ")
             n = n.next
+        print("None")
 
 
 if __name__ == "__main__":
