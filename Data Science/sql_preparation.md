@@ -85,7 +85,8 @@ WHERE  tempamount.totalamount > avgamount.averageamount
 
 **Question**: Count distinct on two columns
 
-:::image type="content" source="sql/payment.png" alt-text="payment table":::
+
+![Payment Table](sql/payment.png)
 
 ```sql
 WITH distinctcustid(distinctcustomercount)
