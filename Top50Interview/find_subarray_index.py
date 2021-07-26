@@ -334,7 +334,6 @@ def findMinimum(list, m, n):
         return findMinimum(list, m + 1, n) + list[m][n]
     elif n < col - 1: 
         return findMinimum(list, m , n + 1) + list[m][n]
-
     
 def findMinimumDynamic(list):
     row = len(list)
@@ -342,43 +341,11 @@ def findMinimumDynamic(list):
     newList = [[0 for x in range(col)] for y in range(row)]
 
     newList[0][0] = list[0][0]
-    for i in range(row):
-        for j in range(col):
-            if i == 0 and j != 0:
-                newList[i][j] = list[i][j] + newList[i][j-1]
-            elif j == 0 and i != 0:
-                newList[i][j] = list[i][j] + newList[i-1][j]
-            elif i < row and j < col:
-                newList[i][j] = list[i][j] + min(newList[i-1][j], newList[i][j-1])
-    
-    print("Minimum sum path")
-
-    for i in range(row):
-        for j in range(col):
-            print(newList[i][j], end=", ")
-        print()
-
-    print()
-    i = row - 1
-    j = col - 1
-
-    print("Path in the matrix => ", end=" ")
-    while i >= 0 and j >= 0:
-        print(f"{list[i][j]} ({i}, {j})", end=", ")
-        if i == 0 and j >= 0:
-            j -= 1
-        elif j == 0 and i >= 0:
-            i -= 1
-        else:
-            if newList[i-1][j] < newList[i][j-1]:
-                i -= 1
-            else:
-                j -= 1
-    
-    print()
-
-    return newList[row - 1][col - 1]
-
+    m = 0
+    n = 0
+    while m < row - 1 and n < col - 1:
+        if n - 1 >=0 and m - 1 >= 0:
+            newList[m + 1][n] = list[m][n] + min(list[m])
 
 arr = [
        [1, 3, 1], 
@@ -386,22 +353,5 @@ arr = [
        [4, 2, 1]
        ]
 
-# print(findMinimum(arr, 0, 0))
-print(f"Minimum Sum Path =>  {findMinimumDynamic(arr)}")
-#%%
-# Given a set of non-negative integers, and a value sum, 
-# determine if there is a subset of the given set with sum equal to given sum. 
-
-# Example: 
-
-# Input: set[] = {3, 34, 4, 12, 5, 2}, sum = 9
-# Output: True  
-# There is a subset (4, 5) with sum 9.
-
-# Input: set[] = {3, 34, 4, 12, 5, 2}, sum = 30
-# Output: False
-# There is no subset that add up to 30.
-
-
-def subsetSumRecursive(arr, k):
-    
+print(findMinimum(arr, 0, 0))
+# %%
