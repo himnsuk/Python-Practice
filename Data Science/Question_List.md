@@ -155,3 +155,57 @@ Additionally, there are four other important metrics - AIC, AICc, BIC and Mallow
 4. **Mallows Cp**: Avariant of AIC developed by Colin Mallows.
 
 Generally, most commonly used metrics, for measuring regression model quality and comparing models, are: Adjusted R2, AIC, BIC and Cp
+
+
+
+
+1. Know what a p-value is and its limitations in decisions.
+2. Linear regression and its assumptions.
+3. When to use different statistical distributions.
+4. How an effect size impacts results/decisions.
+5. Mean, variance for Normal, Uniform, Poisson.
+6. Sampling techniques and common designs (e.g. A/B).
+7. Bayes' theorem (applied calculations).
+8. Common conjugate priors (Bayesian stats).
+9. Logistic regression and ROC curves.
+10. Resampling (Cross validation + bootstrapping).
+11. Dimensionality reduction.
+12. Tree-based models (particularly how to prune)
+13. Ridge and Lasso for regression.
+
+
+1. Nail your linear regression and its assumptions.
+2. Update your knowledge of window functions.
+3. Learn about approaches for missing values.
+4. Cut your last presentation slide count by 50%.
+5. Try to change some words into a visual.
+6. Read your company's latest earnings.
+7. Speak up when you usually wouldn't have.
+8. Get familiar with the data tables you use.
+9. Get to know 2 new people.
+10. Don't try to do all of these at once!
+
+
+Leetcode SQL Link: https://lnkd.in/g3c5JGC
+
+1. Second highest salary problem: https://lnkd.in/erz9tM2
+
+2. Duplicate emails: https://lnkd.in/eF9NJ4w
+
+3. Classes with more than 5 students: https://lnkd.in/enYntdq
+
+4. Rising temperature: https://lnkd.in/eEe3k-k
+
+5. Department top 3 salaries (this one is hard): https://lnkd.in/e-SmKD4
+
+
+1. Knowing how to properly use a t-test.
+2. Explaining the meaning of a p-value to a non-tech audience.
+3. Using WHERE and HAVING properly.
+4. Designing a good A/B test so that stats are easy.
+5. Defining SQL subqueries in the appropriate cases.
+6. Checking the assumptions of linear models.
+7. Understanding how to take a simple random sample.
+8. Explaining confidence and/or credible intervals.
+9. Ability to say in 5 minutes what you could say in 30 min.
+10. Never thinking you've got it all down. Review the basics.
