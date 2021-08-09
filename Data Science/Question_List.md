@@ -209,3 +209,6 @@ Leetcode SQL Link: https://lnkd.in/g3c5JGC
 8. Explaining confidence and/or credible intervals.
 9. Ability to say in 5 minutes what you could say in 30 min.
 10. Never thinking you've got it all down. Review the basics.
+
+
+

@@ -565,3 +565,79 @@ BEGIN
 END
 
 ```
+
+
+1. CUME_DIST (Transact-SQL)
+1. FIRST_VALUE (Transact-SQL)
+1. LAG (Transact-SQL)
+1. LAST_VALUE (Transact-SQL)
+1. LEAD (Transact-SQL)
+1. PERCENT_RANK (Transact-SQL)
+1. PERCENTILE_CONT (Transact-SQL)
+1. PERCENTILE_DISC (Transact-SQL)
+
+
+
+**Useful aggregate functions:**
+
+1. AVG() - Returns the average value
+1. COUNT() - Returns the number of rows
+1. FIRST() - Returns the first value
+1. LAST() - Returns the last value
+1. MAX() - Returns the largest value
+1. MIN() - Returns the smallest value
+1. SUM() - Returns the sum
+
+
+**Useful scalar functions:**
+
+1. UCASE() - Converts a field to upper case
+1. LCASE() - Converts a field to lower case
+1. MID() - Extract characters from a text field
+1. LEN() - Returns the length of a text field
+1. ROUND() - Rounds a numeric field to the number of decimals specified
+1. NOW() - Returns the current system date and time
+1. FORMAT() - Formats how a field is to be displayed
+
+
+1. CAST
+2. CONVERT
+3. PARSE
+4. DATENAME
+5. GETDATE()
+6. DATEADD()
+7. CHOOSE
+8.  IIF
+9. SIGN
+10. POWER
+
+
+### Materialized View
+
+A Materialized View persists the data returned from the view definition query and automatically gets updated as data changes in the underlying tables. It improves the performance of complex queries (typically queries with joins and aggregations) while offering simple maintenance operations. With its execution plan automatching capability, a materialized view does not have to be referenced in the query for the optimizer to consider the view for substitution. This capability allows data engineers to implement materialized views as a mechanism for improving query response time, without having to change queries.
+
+**Syntax:**
+
+```sql
+CREATE MATERIALIZED VIEW [ schema_name. ] materialized_view_name
+    WITH (  
+      <distribution_option>
+    )
+    AS <select_statement>
+[;]
+
+<distribution_option> ::=
+    {  
+        DISTRIBUTION = HASH ( distribution_column_name )  
+      | DISTRIBUTION = ROUND_ROBIN  
+    }
+
+<select_statement> ::=
+    SELECT select_criteria
+```
+
+
+
+### Execution Order
+
+![Execution Order](sql/execution_order_sql.png)
