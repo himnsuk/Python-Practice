@@ -13,4 +13,4 @@ def firstNonRepeating(str1):
         k -= 1
     return c
 str1 = "himanshu"
-print firstNonRepeating(str1)
+print(firstNonRepeating(str1))
