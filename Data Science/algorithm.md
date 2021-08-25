@@ -1,5 +1,10 @@
 # Algorithm and Explanation
 
+
+## Normal Distribution
+
+
+
 ## Supervised Learning
 
 ### 1. Linear Regression
@@ -24,4 +29,15 @@
 ### K-means clustering
 
 ### Principal Component Analysis
+
+
+a. Segmentation and Predictive Modeling (K means, Clustering, Multivariate Regression, Logistic Regression)
+
+b. ML algorithms –RF, GBM / XgBoost, SVM
+
+c. NLP algos – TFIDF, Word2vec, LDA
+
+d. Exploratory Analytics (T-tests)
+
+e. Decision Trees
 
