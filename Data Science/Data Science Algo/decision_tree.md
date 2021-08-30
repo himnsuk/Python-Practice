@@ -495,6 +495,14 @@ This pruned model is less complex, explainable, and easy to understand than the 
 
 Decision Tree Hyperparameters
 ====
+__List of Hyperparameters__:
+
+1. n_estimators = number of trees in the foreset
+1. max_features = max number of features considered for splitting a node
+1. max_depth = max number of levels in each decision tree
+1. min_samples_split = min number of data points placed in a node before the node is split
+1. min_samples_leaf = min number of data points allowed in a leaf node
+1. bootstrap = method for sampling data points (with or without replacement)
 
 ![Max Depth](decision_tree/hyper_parameter_max_depth.png)
 ![Min Sample Split](decision_tree/hyper_parameter_min_sample_split.png)
