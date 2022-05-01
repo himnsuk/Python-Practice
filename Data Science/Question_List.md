@@ -212,3 +212,57 @@ Leetcode SQL Link: https://lnkd.in/g3c5JGC
 
 
 
+
+1. difference between adaboost and gradiient boost,
+1. how multicollinearity affect coefficient
+2. how outlier effect prediction in decision tree
+3. how mean imputation effect 
+4. how aggregation weak models in random forest
+5. 
+
+### Explanation of multicollinearity
+
+Consider the simplest case where Y is regressed against X and Z and where X and Z are highly positively correlated. Then the effect of X on Y is hard to distinguish from the effect of Z on Y because any increase in X tends to be associated with an increase in Z.
+
+Another way to look at this is to consider the equation. If we write Y=b0+b1X+b2Z+e, then the coefficient b1 is the increase in Y for every unit increase in X while holding Z constant. But in practice, it is often impossible to hold Z constant and the positive correlation between X and Z mean that a unit increase in X is usually accompanied by some increase in Z at the same time.
+
+A similar but more complicated explanation holds for other forms of multicollinearity.
+
+
+
+### Sales Data Prediction
+
+This dataset contains household level transactions over two years from a group of 2,500 households who are frequent shoppers at a retailer. It contains all of each household’s purchases, not just those from a limited number of categories. For certain households, demographic information as well as direct marketing contact history are included.
+
+Due to the number of tables and the overall complexity of The Complete Journey, it is suggested that this database be used in more advanced classroom settings. Further, The Complete Journey would be ideal for academic research as it should enable one to study the effects of direct marketing to customers.
+
+The following are examples of questions that could be submitted to students or considered for academic research:
+
+
+How many customers are spending more over time? Less over time? Describe these customers.
+ - Of those customers who are spending more over time, which categories are growing at a faster rate?
+ - Of those customers who are spending less over time, with which categories are they becoming less engaged?
+ - Which demographic factors (e.g. household size, presence of children, income) appear to affect customer spend? -Engagement with certain categories?
+ - Is there evidence to suggest that direct marketing improves overall engagement?
+
+
+### Precision, Recall and f1-score
+
+Imagine that you're trying to classify politicians into two groups: those who are honest, and those who are not. I'll give you a list of 100 people, half of which are honest, and you'll give me a list of all the honest ones, but being careful not to accidentally include anyone who is not.
+
+Having high precision means that when you do say that someone is honest, you're usually right about it. This is about how many politicians in your list are actually honest, out of all the ones that you've added to the list.
+
+Having high recall means that you can identify most of the honest politicians out there. This is about how many honest politicians you've added to your list, out of all the ones that exist.
+
+Note that these are not the same. You could add a single honest politician to the list. You would then have very high precision, since the only person that you've listed is actually honest; but you would also have very low recall: there are 50 honest politicians out there but you've only mentioned one.
+
+Ideally, you'd want to list all honest politicians that exist while being careful to not accidentally include some who are not. If you could do that, then you'd have both high precision and high recall.
+
+When measuring how well you're doing, it's often useful to have a single number to describe your performance. We could define that number to be, for instance, the mean of your precision and your recall. This is exactly what the F1-score is.
+
+The only reason why we use the harmonic mean is because we're taking the average of ratios (percentages), and in that case the harmonic mean is more appropriate than the arithmetic mean.
+
+
+> In __Precision__ think about prediction as your base
+> In __Recall__ think about truth as your base
+

@@ -51,6 +51,7 @@ def dutchmen_flag2(arr):
 arr = [2, 1, 0, 1, 2, 1, 0, 0]
 # arr = [2, 1, 0, 1, 2, 0, 0, 1]
 # print(dutchmenFlag(arr))
+print(arr)
 print(dutchmen_flag2(arr))
 
 # 0 = [2, 1, 0, 1, 2, 1, 0, 0] c = 7, a = 0, b = 0

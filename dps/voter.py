@@ -2,10 +2,10 @@
 
 import sys
 
-n = int(raw_input().strip())
+n = int(input().strip())
 arr = []
 for i in range(n):
-    arr.append(raw_input().strip())
+    arr.append(input().strip())
 
 def winner(arr):
     dicti = {}
@@ -26,7 +26,7 @@ def winner(arr):
 
 
     arr2 = sorted(arr2, reverse = True)
-    print arr2[0]
+    print(arr2[0])
     return arr2[0]
 
 
