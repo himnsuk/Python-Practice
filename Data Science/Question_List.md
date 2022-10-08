@@ -1,4 +1,8 @@
+Data Science Question List
+---
+
 ### What Does Cross-Validation Mean?
+
 Cross-validation is a technique that is used for the assessment of how the results of statistical analysis generalize to an independent data set. Cross-validation is largely used in settings where the target is prediction and it is necessary to estimate the accuracy of the performance of a predictive model. The prime reason for the use of cross-validation rather than conventional validation is that there is not enough data available for partitioning them into separate training and test sets (as in conventional validation). This results in a loss of testing and modeling capability.
 
 Cross-validation is also known as rotation estimation.
@@ -14,7 +18,6 @@ Cross-validation is also known as rotation estimation.
 5. Validate your data
 6. Visualize and present your findings
 
-
 ### Discuss Artificial Neural Networks
 
 An artificial neural network (ANN) is the piece of a computing system designed to simulate the way the human brain analyzes and processes information. It is the foundation of artificial intelligence (AI) and solves problems that would prove impossible or difficult by human or statistical standards.
@@ -25,7 +28,6 @@ backward propagation of errors
 
 > Backpropagation, short for "backward propagation of errors," is an algorithm for supervised learning of artificial neural networks using gradient descent. ... Partial computations of the gradient from one layer are reused in the computation of the gradient for the previous layer.
 
-
 Back-propagation is just a way of propagating the total loss back into the neural network to know how much of the loss every node is responsible for, and subsequently updating the weights in such a way that minimizes the loss by giving the nodes with higher error rates lower weights and vice versa.
 
 ### What is a Random Forest?
@@ -35,6 +37,7 @@ Back-propagation is just a way of propagating the total loss back into the neura
 Random forest, like its name implies, consists of a large number of individual decision trees that operate as an ensemble. Each individual tree in the random forest spits out a class prediction and the class with the most votes becomes our model’s prediction
 
 ### What is the importance of having a selection bias?
+
 Selection Bias occurs when there is no appropriate randomization acheived while selecting individuals, groups or data to be analysed.Selection bias implies that the obtained sample does not exactly represent the population that was actually intended to be analyzed.Selection bias consists of Sampling Bias, Data, Attribute and Time Interval.
 
 ### Explain the difference between Data Science and Data Analytics
@@ -55,10 +58,13 @@ Data analytics is more specific and concentrated than data science. Data analyti
 * Seaborn
   
 ### What is Interpolation and Extrapolation?
+
 Estimating a value from 2 known values from a list of values is Interpolation. Extrapolation is approximating a value by extending a known set of values or facts. ... Interpolation is an estimation of a value within two known values in a sequence of values.
 
 ### How can the outlier values be treated?
+
 ### How often should an algorithm be updated?
+
 It never happens that the final ML model deployed once takes away the worries forever and keeps giving accurate predictions.
 
 Why is that? Lets figure out below:
@@ -71,9 +77,10 @@ Hence, the drifting data distribution calls for an ongoing process of periodical
 2. Robustness:
    People/entities that get affected by the outcome of the ML models may deliberately alter their response in order to send spurious input to the model, thereby escaping the impact of the model predictions. For example, the models such as fraud detection, cyber-security etc receive manipulated and distorted inputs which cause model to output misclassified predictions. Such type of adversaries also drives down the model performance.
 3. When ground truth is not available at the time of model training:
-   In most of the machine learning models, the ground truth labels are not available to train the model. For example, target variable which captures the response of the end user is not known. In that case, your best bet could be to mock the user action based on certain set of rules coming from business understanding or leverage the open source dataset to initiate model training. But, this model might not necessarily represent the actual data and hence will not perform well until a burn-in period where it starts picking (aka learning) the true actions of the end user. 
+   In most of the machine learning models, the ground truth labels are not available to train the model. For example, target variable which captures the response of the end user is not known. In that case, your best bet could be to mock the user action based on certain set of rules coming from business understanding or leverage the open source dataset to initiate model training. But, this model might not necessarily represent the actual data and hence will not perform well until a burn-in period where it starts picking (aka learning) the true actions of the end user.
 
 What all comes under the scope of model retraining?
+
 * Updating the model parameters?
 * Reiterating over the hyper-parameter search space
 * Re-running the model selection pipeline across the candidate pool of algorithms
@@ -87,6 +94,7 @@ Lets look at some of the ways to assess the distribution drift:
 * **Correlation**: Monitoring pairwise correlations between individual predictors will help bring out the underlying drift
 
 ### Define the term deep learning
+
 Deep learning is a type of machine learning and artificial intelligence (AI) that imitates the way humans gain certain types of knowledge. Deep learning is an important element of data science, which includes statistics and predictive modeling.
 
 ### What is Normal Distribution
@@ -95,10 +103,15 @@ Deep learning is a type of machine learning and artificial intelligence (AI) tha
 In probability theory, a normal distribution is a type of continuous probability distribution for a real-valued random variable
 
 ### Which language is best for text analytics? R or Python?
+
 Python
+
 ### Explain the benefits of using statistics by Data Scientists
+
 Get meaningful insight from data
+
 ### Name various types of Deep Learning Frameworks
+
 * TensorFlow. Google's open-source platform TensorFlow is perhaps the most popular tool for Machine Learning and Deep Learning. ...
 * PyTorch. PyTorch is an open-source Deep Learning framework developed by Facebook. ...
 * Keras. ...
@@ -109,9 +122,11 @@ Get meaningful insight from data
 * DL4J.
 
 ### What is skewed Distribution & uniform distribution?
+
 Skewed distribution is a condition when one side (either right or left) of the graph has more dataset in comparison to the other side. Uniform distribution is a condition when all the observations in a dataset are equally spread across the range of distribution.
 
 ### What is reinforcement learning?
+
 Reinforcement learning is an area of Machine Learning. It is about taking suitable action to maximize reward in a particular situation. ... In the absence of a training dataset, it is bound to learn from its experience. Example: The problem is as follows: We have an agent and a reward, with many hurdles in between
 
 ### What is precision?
@@ -126,8 +141,8 @@ Python
 
 Cluster sampling is a probability sampling method in which you divide a population into clusters, such as districts or schools, and then randomly select some of these clusters as your sample. ... In single-stage sampling, you collect data from every unit within the selected clusters.
 
-
 ### Regression Model Accuracy Metrics
+
 Model performance metrics
 
 In regression model, the most commonly known evaluation metrics include:
@@ -156,9 +171,6 @@ Additionally, there are four other important metrics - AIC, AICc, BIC and Mallow
 
 Generally, most commonly used metrics, for measuring regression model quality and comparing models, are: Adjusted R2, AIC, BIC and Cp
 
-
-
-
 1. Know what a p-value is and its limitations in decisions.
 2. Linear regression and its assumptions.
 3. When to use different statistical distributions.
@@ -173,7 +185,6 @@ Generally, most commonly used metrics, for measuring regression model quality an
 12. Tree-based models (particularly how to prune)
 13. Ridge and Lasso for regression.
 
-
 1. Nail your linear regression and its assumptions.
 2. Update your knowledge of window functions.
 3. Learn about approaches for missing values.
@@ -185,19 +196,17 @@ Generally, most commonly used metrics, for measuring regression model quality an
 9. Get to know 2 new people.
 10. Don't try to do all of these at once!
 
+Leetcode SQL Link: <https://lnkd.in/g3c5JGC>
 
-Leetcode SQL Link: https://lnkd.in/g3c5JGC
+1. Second highest salary problem: <https://lnkd.in/erz9tM2>
 
-1. Second highest salary problem: https://lnkd.in/erz9tM2
+2. Duplicate emails: <https://lnkd.in/eF9NJ4w>
 
-2. Duplicate emails: https://lnkd.in/eF9NJ4w
+3. Classes with more than 5 students: <https://lnkd.in/enYntdq>
 
-3. Classes with more than 5 students: https://lnkd.in/enYntdq
+4. Rising temperature: <https://lnkd.in/eEe3k-k>
 
-4. Rising temperature: https://lnkd.in/eEe3k-k
-
-5. Department top 3 salaries (this one is hard): https://lnkd.in/e-SmKD4
-
+5. Department top 3 salaries (this one is hard): <https://lnkd.in/e-SmKD4>
 
 1. Knowing how to properly use a t-test.
 2. Explaining the meaning of a p-value to a non-tech audience.
@@ -210,15 +219,12 @@ Leetcode SQL Link: https://lnkd.in/g3c5JGC
 9. Ability to say in 5 minutes what you could say in 30 min.
 10. Never thinking you've got it all down. Review the basics.
 
-
-
-
 1. difference between adaboost and gradiient boost,
 1. how multicollinearity affect coefficient
 2. how outlier effect prediction in decision tree
-3. how mean imputation effect 
+3. how mean imputation effect
 4. how aggregation weak models in random forest
-5. 
+5.
 
 ### Explanation of multicollinearity
 
@@ -228,8 +234,6 @@ Another way to look at this is to consider the equation. If we write Y=b0+b1X+b2
 
 A similar but more complicated explanation holds for other forms of multicollinearity.
 
-
-
 ### Sales Data Prediction
 
 This dataset contains household level transactions over two years from a group of 2,500 households who are frequent shoppers at a retailer. It contains all of each household’s purchases, not just those from a limited number of categories. For certain households, demographic information as well as direct marketing contact history are included.
@@ -238,13 +242,12 @@ Due to the number of tables and the overall complexity of The Complete Journey, 
 
 The following are examples of questions that could be submitted to students or considered for academic research:
 
-
 How many customers are spending more over time? Less over time? Describe these customers.
- - Of those customers who are spending more over time, which categories are growing at a faster rate?
- - Of those customers who are spending less over time, with which categories are they becoming less engaged?
- - Which demographic factors (e.g. household size, presence of children, income) appear to affect customer spend? -Engagement with certain categories?
- - Is there evidence to suggest that direct marketing improves overall engagement?
 
+* Of those customers who are spending more over time, which categories are growing at a faster rate?
+* Of those customers who are spending less over time, with which categories are they becoming less engaged?
+* Which demographic factors (e.g. household size, presence of children, income) appear to affect customer spend? -Engagement with certain categories?
+* Is there evidence to suggest that direct marketing improves overall engagement?
 
 ### Precision, Recall and f1-score
 
@@ -262,7 +265,19 @@ When measuring how well you're doing, it's often useful to have a single number 
 
 The only reason why we use the harmonic mean is because we're taking the average of ratios (percentages), and in that case the harmonic mean is more appropriate than the arithmetic mean.
 
+> In **Precision** think about prediction as your base
 
-> In __Precision__ think about prediction as your base
-> In __Recall__ think about truth as your base
+> In **Recall** think about truth as your base
 
+#### Precision, Recall, and F1 Score
+
+[![Precision, Recall, and F1 Score](./Images/Question_List/precision_recall_f1.png)](https://youtu.be/jJ7ff7Gcq34)
+
+### Text Analytics Terms
+
+> Lemmatization always gives the dictionary meaning word while converting into root-form. Stemming is preferred when the meaning of the word is not important for analysis. Lemmatization would be recommended when the meaning of the word is important for analysis.
+
+
+### VIF
+
+Small VIF values, VIF < 3, indicate low correlation among variables under ideal conditions. The default VIF cutoff value is 5; only variables with a VIF less than 5 will be included in the model. However, note that many sources say that a VIF of less than 10 is acceptable.
