@@ -281,3 +281,16 @@ The only reason why we use the harmonic mean is because we're taking the average
 ### VIF
 
 Small VIF values, VIF < 3, indicate low correlation among variables under ideal conditions. The default VIF cutoff value is 5; only variables with a VIF less than 5 will be included in the model. However, note that many sources say that a VIF of less than 10 is acceptable.
+
+
+### Unsupervised learning algorithm list
+
+1. K-means clustering
+1. KNN (k-nearest neighbors)
+1. Hierarchal clustering
+1. Anomaly detection
+1. Neural Networks
+1. Principle Component Analysis
+1. Independent Component Analysis
+1. Apriori algorithm
+1. Singular value decomposition
