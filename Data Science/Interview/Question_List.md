@@ -9,7 +9,7 @@ Cross-validation is also known as rotation estimation.
 
 ### Explain the steps for a Data analytics project
 
-![Data Analytics Steps](LifeCycleRefresh_FINAL-2.png)
+![Data Analytics Steps](images/LifeCycleRefresh_FINAL-2.png)
 
 1. Understand the business issue
 2. Understand your data set
@@ -32,7 +32,7 @@ Back-propagation is just a way of propagating the total loss back into the neura
 
 ### What is a Random Forest?
 
-![Random Forrest](1_VHDtVaDPNepRglIAv72BFg.jpeg)
+![Random Forrest](images/1_VHDtVaDPNepRglIAv72BFg.jpeg)
 
 Random forest, like its name implies, consists of a large number of individual decision trees that operate as an ensemble. Each individual tree in the random forest spits out a class prediction and the class with the most votes becomes our model’s prediction
 
@@ -99,7 +99,7 @@ Deep learning is a type of machine learning and artificial intelligence (AI) tha
 
 ### What is Normal Distribution
 
-![Normal Distribution](normal_distribution.png)
+![Normal Distribution](images/normal_distribution.png)
 In probability theory, a normal distribution is a type of continuous probability distribution for a real-valued random variable
 
 ### Which language is best for text analytics? R or Python?
@@ -271,7 +271,7 @@ The only reason why we use the harmonic mean is because we're taking the average
 
 #### Precision, Recall, and F1 Score
 
-[![Precision, Recall, and F1 Score](./Images/Question_List/precision_recall_f1.png)](https://youtu.be/jJ7ff7Gcq34)
+[![Precision, Recall, and F1 Score](./images/precision_recall_f1.png)](https://youtu.be/jJ7ff7Gcq34)
 
 ### Text Analytics Terms
 
@@ -294,3 +294,75 @@ Small VIF values, VIF < 3, indicate low correlation among variables under ideal 
 1. Independent Component Analysis
 1. Apriori algorithm
 1. Singular value decomposition
+
+
+### Logistic Regression Assumption
+
+1. If Y is continuous: Multiple Linear regression if Y can be
+assumed to be Normal
+2. If Y is continuous: other regression models such as Gamma
+regression etc if Y can not be assumed to be Normal
+(Generalized Linear Models - GLM)
+3. If Y is binary: Logistic regression (GLM)
+4. If Y is multicategory: Multilogit regresion (ordinal or nominal)
+5. If Y is count data: Poisson, Negative Binommial regression
+(GLM)
+
+
+### Linear Regression Model Assumptions
+
+1. L: Response variable Yi is a linear function of the parameters
+and regressors.
+2. I: Random errors "i are independent.
+3. N: Random errors "i are Normally distributed with mean 0.
+4. E: Variance of random errors "i is same for all i (homoscedasticity)
+
+
+### Type of algorithm used in Deep Learning
+
+1. Convolutional Neural Networks (CNNs)
+1. Long Short Term Memory Networks (LSTMs)
+1. Recurrent Neural Networks (RNNs)
+1. Generative Adversarial Networks (GANs)
+1. Radial Basis Function Networks (RBFNs)
+1. Multilayer Perceptrons (MLPs)
+1. Self Organizing Maps (SOMs)
+1. Deep Belief Networks (DBNs)
+1. Restricted Boltzmann Machines( RBMs)
+1. Autoencoders
+
+### Top 8 Algorithms For Object Detection
+
+1. Fast R-CNN
+2. Faster R-CNN
+3. Histogram of Oriented Gradients (HOG)
+4. Region-based Convolutional Neural Networks (R-CNN)
+5. Region-based Fully Convolutional Network (R-FCN)
+6. Single Shot Detector (SSD)
+7. Spatial Pyramid Pooling (SPP-net)
+8. YOLO (You Only Look Once)
+
+
+### Very good source to understand chi-square test
+
+[Chi-square test](https://www.bmj.com/about-bmj/resources-readers/publications/statistics-square-one/8-chi-squared-tests)
+
+### Commands to run for mac repeat vim mode
+
+```sh
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false
+defaults write com.visualstudio.code.oss ApplePressAndHoldEnabled -bool false
+defaults delete -g ApplePressAndHoldEnabled 
+```
+
+
+### PROPERTIES OF LEAST SQUARES
+1. Mean of estimated residuals = 0, 0
+2. Sum of squared residuals is minimized.
+3. Sample correlation between x and ˆ is zero (i.e., x and ˆ are
+uncorrelated) r{x,ˆ } = 0
+4. Sample correlation between yˆ and ˆ is zero (i.e., yˆ and ˆ are
+uncorrelated) r{ yˆ ,ˆ } = 0
+5. Regression line always goes through the mean of x and y, i.e., the
+regression line goes through point (x, y) .
