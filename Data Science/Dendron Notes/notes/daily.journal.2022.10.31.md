@@ -2,13 +2,11 @@
 id: rxnss62rha2quf9mg85mo33
 title: '2022-10-31'
 desc: ''
-updated: 1667179175120
+updated: 1667279355381
 created: 1667145230853
 traitIds:
   - journalNote
 ---
-This template was applied using the daily journal schema. Edit the [[templates.daily]] note to change this template.
-To create your own schemas to auto-apply templates when they match a hierarchy, follow the [schema tutorial](https://blog.dendron.so/notes/P1DL2uXHpKUCa7hLiFbFA/) to get started.
 
 <!--
 Based on the journaling method created by Intelligent Change:
@@ -22,15 +20,15 @@ Based on the journaling method created by Intelligent Change:
 
 Todo list
 
-- [ ] Luke Warm water with fresh lemon and honey
-- [ ] Meditation
-- [ ] Push ups - 50
-- [ ] Breakfast, lunch, dinner
-- [ ] Study
-- [ ] D3 Tablet
-- [ ] Doctor Appointment at 11
-- [ ] Courier T-Shirts
-- [ ] 
+- [x] Luke Warm water with fresh lemon and honey
+- [x] Meditation
+- [x] Push ups - 45
+- [x] Breakfast, lunch, dinner
+- [w] Study
+- [x] D3 Tablet
+- [x] Doctor Appointment at 11
+- [x] Courier T-Shirts
+- [ ] Daily Course from oracle training evening
 
 ### Gratitude
 

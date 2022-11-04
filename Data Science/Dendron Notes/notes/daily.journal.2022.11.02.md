@@ -1,24 +1,27 @@
 ---
-id: rqs6r7x3bnjraj9txukormd
-title: Daily Journal Template
+id: o4j44ap4dus0jwy13rmb0r1
+title: '2022-11-02'
 desc: ''
-updated: 1667362864062
-created: 1667043194983
+updated: 1667279490180
+created: 1667179401833
+traitIds:
+  - journalNote
 ---
-    
+
 ## Todo List
 
-- [ ] Luke Warm water with fresh lemon and honey
-- [ ] Meditation
-- [ ] Push ups - 45
-- [ ] Breakfast, lunch, dinner
+- [x] Luke Warm water with fresh lemon and honey
+- [x] Meditation
+- [ ] Push ups - 50
+- [x] Breakfast, lunch, dinner
 - [ ] Study
 - [ ] Daily Course from oracle training evening
+
 
 ## Morning
 
 <!-- Fill out this section after waking up -->
-
+Meditation done
 
 ### What would make today great?
 
@@ -43,3 +46,4 @@ I am...
 ### How could I have made today even better?
 
 I could have made today better by
+
