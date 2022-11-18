@@ -1,6 +1,6 @@
 ---
 id: smlc8m2t6sgffcakt8sexzo
-title: '2022-10-29'
+title: '29'
 desc: ''
 updated: 1667179374251
 created: 1667043195005
