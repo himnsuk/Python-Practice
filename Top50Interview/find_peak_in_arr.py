@@ -125,13 +125,13 @@ def findSubArrayIndex2(str1, str2):
     if len(str1) < len(str2):
         return -1
 
-	n = len(str1)
-	m = len(str2)
+        n = len(str1)
+        m = len(str2)
 
-	for i in range(n-m+1):
-		for j in range(m):
-			if str1[i+j] != str2[j]:
-				found = False
+        for i in range(n-m+1):
+            for j in range(m):
+                if str1[i+j] != str2[j]:
+                    found = False
 
 
 # print(findSubArrayIndex(str1, str2))

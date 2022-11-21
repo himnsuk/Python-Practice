@@ -2,5 +2,9 @@
     "jupyter.jupyterServerType": "local",
     "files.watcherExclude": {
         "**/target": true
-    }
+    },
+    "cSpell.words": [
+        "Homoscedasticity",
+        "Multicollinearity"
+    ]
 }
