@@ -2,7 +2,7 @@
 id: 5xveh2uwkrfkloni4tqrfwo
 title: Statistics
 desc: ''
-updated: 1667440472509
+updated: 1669803521506
 created: 1667440395385
 ---
 
@@ -23,9 +23,17 @@ A margin of error is a statistical measure that accounts for the degree of error
 
 How do you find margin of error from standard error?
 It is calculated as:
-* Standard Error = s / √n.
-* Margin of Error = z*(s/√n)
-* Confidence Interval = x +/- z*(s/√n)
+$$
+Standard Error = s / √n.
+$$
+
+$$
+Margin of Error = z*(s/√n)
+$$
+
+$$
+Confidence Interval = x +/- z*(s/√n)
+$$
 
 ### Type 1 and Type 2 error
 A type I error (false-positive) occurs if an investigator rejects a null hypothesis that is actually true in the population; a type II error (false-negative) occurs if the investigator fails to reject a null hypothesis that is actually false in the population.

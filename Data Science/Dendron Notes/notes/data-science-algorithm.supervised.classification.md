@@ -2,7 +2,7 @@
 id: swlsfu71dan4ib7dkpiebm0
 title: Classification
 desc: ''
-updated: 1667440375571
+updated: 1669018384793
 created: 1667387650067
 ---
 
@@ -21,4 +21,4 @@ Recall = TP/TP+FN
 
 F1 score - F1 Score is the weighted average of Precision and Recall. Therefore, this score takes both false positives and false negatives into account. Intuitively it is not as easy to understand as accuracy, but F1 is usually more useful than accuracy, especially if you have an uneven class distribution. Accuracy works best if false positives and false negatives have similar cost. If the cost of false positives and false negatives are very different, it’s better to look at both Precision and Recall. In our case, F1 score is 0.701.
 
-F1 Score = 2*(Recall * Precision) / (Recall + Precision)
+F1 Score = 2*(Recall \* Precision) / (Recall + Precision)
