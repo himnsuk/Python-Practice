@@ -2,7 +2,7 @@
 id: 84i8tesq61b2sger4na1owt
 title: Python
 desc: ''
-updated: 1667216183084
+updated: 1673689349913
 created: 1667216183084
 ---
 
@@ -11,7 +11,7 @@ created: 1667216183084
 
 
 
-###Things to Remember:
+### Things to Remember:
 
 1. \*args and \*\*kwargs are special keyword which allows function to take variable length argument.
 2. \*args passes variable number of non-keyworded arguments and on which operation of the tuple can be performed.

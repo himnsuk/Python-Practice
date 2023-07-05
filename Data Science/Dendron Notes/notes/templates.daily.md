@@ -2,23 +2,24 @@
 id: rqs6r7x3bnjraj9txukormd
 title: Daily Journal Template
 desc: ''
-updated: 1667362864062
+updated: 1675124212330
 created: 1667043194983
 ---
     
 ## Todo List
 
-- [ ] Luke Warm water with fresh lemon and honey
-- [ ] Meditation
-- [ ] Push ups - 45
-- [ ] Breakfast, lunch, dinner
-- [ ] Study
-- [ ] Daily Course from oracle training evening
+1.
+2.
+3.
 
 ## Morning
 
+- [ ] Luke Warm water with fresh lemon and honey / Coconut Water
+- [ ] Meditation
+- [ ] Push ups - 50
+- [ ] Breakfast
+- [ ] Study
 <!-- Fill out this section after waking up -->
-
 
 ### What would make today great?
 

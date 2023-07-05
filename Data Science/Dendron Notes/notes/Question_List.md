@@ -2,7 +2,7 @@
 id: 2296fjos1mj365x92ibotk8
 title: Question_List
 desc: ''
-updated: 1667541816273
+updated: 1682392710760
 created: 1667541816273
 ---
 
@@ -285,11 +285,9 @@ The only reason why we use the harmonic mean is because we're taking the average
 
 > Lemmatization always gives the dictionary meaning word while converting into root-form. Stemming is preferred when the meaning of the word is not important for analysis. Lemmatization would be recommended when the meaning of the word is important for analysis.
 
-
 ### VIF
 
 Small VIF values, VIF < 3, indicate low correlation among variables under ideal conditions. The default VIF cutoff value is 5; only variables with a VIF less than 5 will be included in the model. However, note that many sources say that a VIF of less than 10 is acceptable.
-
 
 ### Unsupervised learning algorithm list
 
@@ -303,7 +301,6 @@ Small VIF values, VIF < 3, indicate low correlation among variables under ideal 
 1. Apriori algorithm
 1. Singular value decomposition
 
-
 ### Logistic Regression Assumption
 
 1. If Y is continuous: Multiple Linear regression if Y can be
@@ -316,7 +313,6 @@ regression etc if Y can not be assumed to be Normal
 5. If Y is count data: Poisson, Negative Binommial regression
 (GLM)
 
-
 ### Linear Regression Model Assumptions
 
 1. L: Response variable Yi is a linear function of the parameters
@@ -324,7 +320,6 @@ and regressors.
 2. I: Random errors "i are independent.
 3. N: Random errors "i are Normally distributed with mean 0.
 4. E: Variance of random errors "i is same for all i (homoscedasticity)
-
 
 ### Type of algorithm used in Deep Learning
 
@@ -350,7 +345,6 @@ and regressors.
 7. Spatial Pyramid Pooling (SPP-net)
 8. YOLO (You Only Look Once)
 
-
 ### Very good source to understand chi-square test
 
 [Chi-square test](https://www.bmj.com/about-bmj/resources-readers/publications/statistics-square-one/8-chi-squared-tests)
@@ -364,8 +358,8 @@ defaults write com.visualstudio.code.oss ApplePressAndHoldEnabled -bool false
 defaults delete -g ApplePressAndHoldEnabled 
 ```
 
-
 ### PROPERTIES OF LEAST SQUARES
+
 1. Mean of estimated residuals = 0, 0
 2. Sum of squared residuals is minimized.
 3. Sample correlation between x and ˆ is zero (i.e., x and ˆ are
