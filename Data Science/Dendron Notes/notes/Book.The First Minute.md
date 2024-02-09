@@ -2,7 +2,7 @@
 id: oiy445r7w5dm82bw3wu6zbe
 title: The First Minute
 desc: ''
-updated: 1675525393066
+updated: 1706598596303
 created: 1674237217447
 ---
 
@@ -28,8 +28,9 @@ conversation.
 
 > Finally, you’ll discover the three components required of a structured summary:
 
-1) the goal you are trying to achieve, 2) the problem stopping you from reaching
-that goal, and 3) the solution to the problem. These three things will enable you
+1. the goal you are trying to achieve,
+2. the problem stopping you from reaching that goal, and
+3. the solution to the problem. These three things will enable you
 to summarize any topic, no matter how complex.
 
 It is possible to make a great first impression with a colleague, only to ruin that
