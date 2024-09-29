@@ -36,7 +36,8 @@ Suppose you are predicting house prices based on features like size, location, a
 - In Random Forest, not only is the data bootstrapped, but a random subset of features is used at each split of the decision trees, making the model even more robust.
 
 ### **Visualization:**
-![Bagging Visualization](https://miro.medium.com/v2/resize:fit:1200/1*cHbl9rMcf9U8GZBhnbH1pw.png)
+
+![Bagging Visualization](images/bagging-visualization.png)
 
 ---
 
