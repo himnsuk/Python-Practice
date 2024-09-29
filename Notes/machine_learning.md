@@ -69,7 +69,8 @@ Suppose you are predicting customer churn (whether a customer will leave a servi
 - **Gradient Boosting:** Focuses on reducing the errors in a gradient descent fashion by minimizing a loss function iteratively.
 
 ### **Visualization:**
-![Boosting Visualization](https://miro.medium.com/v2/resize:fit:1200/format:webp/1*IDHW-FYpoRYW9-bnsoT_EA.png)
+
+![Boosting Visualization](images/boosting-visualization.png)
 
 ---
 
