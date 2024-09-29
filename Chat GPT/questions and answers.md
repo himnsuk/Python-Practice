@@ -40,7 +40,7 @@ Selecting a classification algorithm in machine learning involves considering se
 Remember that the choice of classification algorithm is not set in stone, and it often requires iterative experimentation and evaluation to find the most suitable approach for a given problem.
 
 
-## Strenght and weakness
+## Strength and weakness
 
 ### Linear Regression
 

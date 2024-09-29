@@ -238,7 +238,7 @@ Leetcode SQL Link: <https://lnkd.in/g3c5JGC>
 
 Consider the simplest case where Y is regressed against X and Z and where X and Z are highly positively correlated. Then the effect of X on Y is hard to distinguish from the effect of Z on Y because any increase in X tends to be associated with an increase in Z.
 
-Another way to look at this is to consider the equation. If we write Y=b0+b1X+b2Z+e, then the coefficient b1 is the increase in Y for every unit increase in X while holding Z constant. But in practice, it is often impossible to hold Z constant and the positive correlation between X and Z mean that a unit increase in X is usually accompanied by some increase in Z at the same time.
+Another way to look at this is to consider the equation. If we write $Y=b0+b1X+b2Z+e$, then the coefficient b1 is the increase in Y for every unit increase in X while holding Z constant. But in practice, it is often impossible to hold Z constant and the positive correlation between X and Z mean that a unit increase in X is usually accompanied by some increase in Z at the same time.
 
 A similar but more complicated explanation holds for other forms of multicollinearity.
 
