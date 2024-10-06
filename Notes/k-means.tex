@@ -1,0 +1,83 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+
+\title{K-means Clustering Algorithm}
+\author{HIMANSHU KESARVANI}
+\date{06/10/2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+K-means is a popular unsupervised learning algorithm used for clustering, where the aim is to partition a set of $n$ data points into $k$ clusters. Each data point belongs to the cluster with the nearest mean, serving as the cluster's centroid. K-means minimizes the within-cluster sum of squares (WCSS), which is also known as the inertia or variance.
+
+\section{Mathematical Formulation}
+
+Let $X = \{x_1, x_2, \dots, x_n\}$ be a set of $n$ data points, where each data point $x_i$ is a $d$-dimensional vector: $x_i \in \mathbb{R}^d$. The goal of K-means is to divide $X$ into $k$ clusters, denoted as $C_1, C_2, \dots, C_k$, such that the following objective function is minimized:
+
+\[
+J = \sum_{i=1}^{k} \sum_{x \in C_i} \|x - \mu_i\|^2
+\]
+
+Here, $\mu_i$ represents the centroid of cluster $C_i$, and $\|x - \mu_i\|^2$ is the squared Euclidean distance between a data point $x$ and the centroid $\mu_i$.
+
+The K-means algorithm iteratively updates the centroids and assigns data points to clusters based on the following steps.
+
+\section{Steps of the K-means Algorithm}
+
+\subsection{Step 1: Initialization}
+Randomly initialize $k$ centroids $\mu_1, \mu_2, \dots, \mu_k$. These centroids can be initialized randomly from the data points or by using methods such as the K-means++ algorithm, which improves the initialization to avoid poor clustering.
+
+\subsection{Step 2: Assign Data Points to Clusters}
+For each data point $x_j$, assign it to the cluster with the nearest centroid. Mathematically, data point $x_j$ is assigned to cluster $C_i$ if:
+
+\[
+C_i = \{ x_j : \|x_j - \mu_i\|^2 \leq \|x_j - \mu_l\|^2 \text{ for all } l = 1, \dots, k \}
+\]
+
+This step minimizes the distance between each data point and its closest centroid.
+
+\subsection{Step 3: Update Centroids}
+After assigning all data points to clusters, recompute the centroid of each cluster as the mean of the points in that cluster:
+
+\[
+\mu_i = \frac{1}{|C_i|} \sum_{x_j \in C_i} x_j
+\]
+
+where $|C_i|$ is the number of points in cluster $C_i$.
+
+\subsection{Step 4: Convergence Check}
+Repeat Steps 2 and 3 until convergence. Convergence occurs when the centroids no longer change significantly or when the assignments of data points to clusters remain unchanged. Formally, you can stop the algorithm when:
+
+\[
+\sum_{i=1}^{k} \|\mu_i^{(t)} - \mu_i^{(t-1)}\|^2 < \epsilon
+\]
+
+where $\epsilon$ is a small threshold and $\mu_i^{(t)}$ and $\mu_i^{(t-1)}$ represent the centroids at iteration $t$ and $t-1$, respectively.
+
+\section{Complexity and Limitations}
+
+The time complexity of the K-means algorithm is $O(n \cdot k \cdot d \cdot t)$, where:
+\begin{itemize}
+    \item $n$ is the number of data points,
+    \item $k$ is the number of clusters,
+    \item $d$ is the dimensionality of each data point,
+    \item $t$ is the number of iterations until convergence.
+\end{itemize}
+
+\subsection{Limitations}
+\begin{itemize}
+    \item K-means is sensitive to the initial choice of centroids. Poor initialization can lead to suboptimal clustering.
+    \item The algorithm assumes clusters to be spherical and equally sized, which might not be the case for real-world data.
+    \item K-means requires the number of clusters, $k$, to be predefined.
+    \item The algorithm converges to a local minimum, which might not be the global minimum.
+\end{itemize}
+
+\section{Conclusion}
+
+The K-means algorithm is a simple yet powerful clustering technique that groups data into $k$ clusters based on the nearest centroid. Although it has limitations such as sensitivity to initialization and the assumption of spherical clusters, it remains widely used due to its efficiency and ease of implementation. Proper initialization techniques, such as K-means++, can mitigate some of the algorithm's weaknesses.
+
+\end{document}
