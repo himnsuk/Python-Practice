@@ -180,3 +180,45 @@ When preparing for an interview on statistics, here are key concepts and topics 
 ---
 
 By mastering these topics, you will be well-prepared for interviews involving statistics and data analysis.
+
+
+### **5. Skewness:**
+
+![Skewness](images/skewness.png)
+
+
+### Type I and Type II error Examples
+
+In statistics, Type I and Type II errors are concepts related to hypothesis testing. Here's a brief overview of each along with examples:
+
+### Type I Error (False Positive)
+A Type I error occurs when the null hypothesis is rejected when it is actually true. In other words, it's the mistake of concluding that there is an effect or difference when, in reality, there is none.
+
+**Example 1**: A medical test for a disease
+- Null Hypothesis (H0): The patient does not have the disease.
+- Alternative Hypothesis (H1): The patient has the disease.
+- **Type I Error**: The test indicates that the patient has the disease when they actually do not (the test returns a positive result falsely).
+
+**Example 2**: A new drug's effectiveness
+- Null Hypothesis (H0): The new drug has no effect on patients.
+- Alternative Hypothesis (H1): The new drug improves patient outcomes.
+- **Type I Error**: Concluding that the new drug is effective when it is not (the trial shows a statistically significant positive effect when there isn't one).
+
+### Type II Error (False Negative)
+A Type II error occurs when the null hypothesis is not rejected when it is actually false. This means failing to detect an effect or difference when one actually exists.
+
+**Example 1**: A medical test for a disease
+- Null Hypothesis (H0): The patient does not have the disease.
+- Alternative Hypothesis (H1): The patient has the disease.
+- **Type II Error**: The test indicates that the patient does not have the disease when they actually do (the test returns a negative result falsely).
+
+**Example 2**: A new drug's effectiveness
+- Null Hypothesis (H0): The new drug has no effect on patients.
+- Alternative Hypothesis (H1): The new drug improves patient outcomes.
+- **Type II Error**: Concluding that the new drug is not effective when it actually is (the trial fails to show a statistically significant positive effect when there is one).
+
+### Summary
+- **Type I Error** (False Positive): Incorrectly rejecting a true null hypothesis (e.g., saying a test is positive when it's not).
+- **Type II Error** (False Negative): Failing to reject a false null hypothesis (e.g., saying a test is negative when it is actually positive). 
+
+Both types of errors are important to consider in the design and interpretation of hypothesis tests, as they can have significant implications in research, healthcare, and more.
