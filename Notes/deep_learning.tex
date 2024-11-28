@@ -9,7 +9,9 @@
 \title{Deep Learning Notes}
 \author{Himanshu Kesarvani}
 \maketitle
-A {\bf Perceptron} is the simplest form of a neural network model, often considered the building block of more complex neural networks like multilayer perceptrons and deep learning models. It is a type of **binary classifier that maps an input vector to an output using a simple mathematical model.
+A {\bf Perceptron} is the simplest form of a neural network model, often considered the building block of 
+more complex neural networks like multilayer perceptrons and deep learning models. It is a type of 
+{\bf binary classifier} that maps an input vector to an output using a simple mathematical model.
 
 \section{ Key Concepts of the Perceptron:}
 
@@ -30,7 +32,8 @@ A {\bf Perceptron} is the simplest form of a neural network model, often conside
    \item [-] {\bf Output}: $(y)$ (the final classification result)
 \end{enumerate}
 
-The perceptron computes a {\bf weighted sum** of the inputs, adds the bias, and applies an **activation function} to produce an output. The formula for the weighted sum is:
+The perceptron computes a {\bf weighted sum} of the inputs, adds the bias, and applies an 
+{\bf activation function} to produce an output. The formula for the weighted sum is:
 
 $$
 z = \sum_{i=1}^{n} w_i x_i + b
@@ -53,7 +56,9 @@ $$
 This {\bf z} value is a linear combination of the inputs and their corresponding weights. It essentially tells how strongly the inputs contribute to the final output.
 
 \section{{\bf Activation Function}}
-The {\bf activation function** determines the output of the perceptron based on the value of the weighted sum $(z)$. For the perceptron, we typically use the **step function**, also known as the **Heaviside function}, for binary classification. It outputs either 0 or 1 depending on whether $(z)$ is greater than or less than a certain threshold (usually 0).
+The {\bf activation function} determines the output of the perceptron based on 
+the value of the weighted sum $(z)$. For the perceptron, we typically use the {\bf step function}, 
+also known as the {\bf Heaviside function}, for binary classification. It outputs either 0 or 1 depending on whether $(z)$ is greater than or less than a certain threshold (usually 0).
 
 The step function is:
 
@@ -120,7 +125,8 @@ $$
 Since $(z = -0.5)$, which is less than 0, the output is $(y = 0)$. Therefore, the perceptron classifies this input as belonging to the negative class (0).
 
 \section{ Training a Perceptron}
-During training, a perceptron uses a method called {\bf gradient descent** (or in simpler cases, **perceptron learning algorithm}) to adjust its weights based on the error between the predicted and actual output. The update rule for weights is:
+During training, a perceptron uses a method called {\bf gradient descent 
+(or in simpler cases, perceptron learning algorithm)} to adjust its weights based on the error between the predicted and actual output. The update rule for weights is:
 
 $$
 w_i = w_i + \Delta w_i
@@ -173,7 +179,8 @@ A {\bf Convolutional Neural Network (CNN)} is a type of deep learning model spec
 \end{enumerate}
 
 \section{ 1. {\bf Convolution Operation}}
-The core idea behind CNNs is the {\bf convolution** operation. In convolution, a small matrix called a **filter** or **kernel} slides across the input image to detect patterns, such as edges, textures, or colors.
+The core idea behind CNNs is the {\bf convolution} operation. 
+In convolution, a small matrix called a {\bf filter} or {\bf kernel} slides across the input image to detect patterns, such as edges, textures, or colors.
 
 \subsection{ Example:}
 Suppose you have a grayscale image of size 5x5 pixels:
