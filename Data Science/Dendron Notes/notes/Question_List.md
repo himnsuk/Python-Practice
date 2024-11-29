@@ -17,7 +17,7 @@ Cross-validation is also known as rotation estimation.
 
 ### Explain the steps for a Data analytics project
 
-![Data Analytics Steps](images/LifeCycleRefresh_FINAL-2.png)
+![Data Analytics Steps](assets/images/LifeCycleRefresh_FINAL-2.png)
 
 1. Understand the business issue
 2. Understand your data set
@@ -40,7 +40,7 @@ Back-propagation is just a way of propagating the total loss back into the neura
 
 ### What is a Random Forest?
 
-![Random Forrest](images/1_VHDtVaDPNepRglIAv72BFg.jpeg)
+![Random Forrest](assets/images/1_VHDtVaDPNepRglIAv72BFg.jpeg)
 
 Random forest, like its name implies, consists of a large number of individual decision trees that operate as an ensemble. Each individual tree in the random forest spits out a class prediction and the class with the most votes becomes our model’s prediction
 
@@ -107,7 +107,7 @@ Deep learning is a type of machine learning and artificial intelligence (AI) tha
 
 ### What is Normal Distribution
 
-![Normal Distribution](images/normal_distribution.png)
+![Normal Distribution](assets/images/normal_distribution.png)
 In probability theory, a normal distribution is a type of continuous probability distribution for a real-valued random variable
 
 ### Which language is best for text analytics? R or Python?
@@ -279,7 +279,7 @@ The only reason why we use the harmonic mean is because we're taking the average
 
 #### Precision, Recall, and F1 Score
 
-[![Precision, Recall, and F1 Score](./images/precision_recall_f1.png)](https://youtu.be/jJ7ff7Gcq34)
+[![Precision, Recall, and F1 Score](assets/images/precision_recall_f1.png)](https://youtu.be/jJ7ff7Gcq34)
 
 ### Text Analytics Terms
 
