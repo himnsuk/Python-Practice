@@ -626,3 +626,176 @@ Where:
 - The regularization term adds constraints to reduce model complexity.
 
 XGBoost optimizes this objective function using gradient boosting. During each iteration, it minimizes the loss function by building a new weak learner (typically a decision tree) that corrects the residuals of the current model.
+
+---
+
+### Hyperparameters for XGBoost
+
+XGBoost (Extreme Gradient Boosting) is a powerful implementation of gradient boosting, offering a range of hyperparameters to fine-tune for optimal performance. These hyperparameters can be grouped into categories based on their function: **general parameters**, **booster parameters**, **learning task parameters**, and **command-line parameters**. Below is a detailed list:
+
+---
+
+### **1. General Parameters**
+These parameters control the overall behavior of the model.
+
+- **`booster`**  
+  Specifies the type of boosting model to use:  
+  - `"gbtree"` (default): Gradient-boosted trees.
+  - `"gblinear"`: Linear booster (for linear models).
+  - `"dart"`: Dropouts meet Multiple Additive Regression Trees (DART).
+
+- **`nthread`**  
+  Number of parallel threads to use. Default depends on your system.
+
+- **`verbosity`**  
+  Controls the amount of information displayed during training:  
+  - `0`: Silent.
+  - `1`: Warning (default).
+  - `2`: Info.
+  - `3`: Debug.
+
+- **`seed`**  
+  Random seed for reproducibility.
+
+---
+
+### **2. Booster Parameters**
+These control the specific behavior of the chosen booster.
+
+#### **(a) Tree Booster Parameters (`gbtree`, `dart`)**
+
+- **`eta`** (Learning Rate)  
+  Reduces the contribution of each tree. Typical range: `0.01`–`0.3`.
+
+- **`max_depth`**  
+  Maximum depth of a tree. Higher values lead to more complex models. Default: `6`.
+
+- **`min_child_weight`**  
+  Minimum sum of instance weights (hessian) needed in a child node. Larger values prevent overfitting.
+
+- **`gamma`**  
+  Minimum loss reduction required to make a further split. Higher values make the algorithm more conservative.
+
+- **`subsample`**  
+  Fraction of samples used for training each tree. Range: `(0, 1]`. Default: `1.0`.
+
+- **`colsample_bytree`**  
+  Fraction of features used for training each tree. Range: `(0, 1]`. Default: `1.0`.
+
+- **`colsample_bylevel`**  
+  Fraction of features used per level of the tree. Default: `1.0`.
+
+- **`colsample_bynode`**  
+  Fraction of features used per split. Default: `1.0`.
+
+- **`lambda`** (L2 Regularization)  
+  Regularization term on leaf weights. Default: `1`.
+
+- **`alpha`** (L1 Regularization)  
+  L1 regularization term on leaf weights. Default: `0`.
+
+- **`scale_pos_weight`**  
+  Balances the dataset for imbalanced classification tasks. Set to \( \text{num_negative} / \text{num_positive} \).
+
+---
+
+#### **(b) Linear Booster Parameters (`gblinear`)**
+
+- **`lambda`**  
+  L2 regularization term on weights. Default: `0`.
+
+- **`alpha`**  
+  L1 regularization term on weights. Default: `0`.
+
+- **`updater`**  
+  Algorithm for updating the model:  
+  - `"shotgun"`: Parallel coordinate descent algorithm.
+  - `"coord_descent"`: Sequential coordinate descent algorithm.
+
+---
+
+#### **(c) DART Booster Parameters (`dart`)**
+
+- **`sample_type`**  
+  Sampling method:  
+  - `"uniform"`: Uniform drop.
+  - `"weighted"`: Weighted drop.
+
+- **`normalize_type`**  
+  Normalization method for dropped trees:  
+  - `"tree"`: Rescale trees.
+  - `"forest"`: Rescale the entire forest.
+
+- **`rate_drop`**  
+  Probability of dropping a tree during training. Default: `0.0`.
+
+- **`skip_drop`**  
+  Probability of skipping the dropout procedure. Default: `0.0`.
+
+---
+
+### **3. Learning Task Parameters**
+These define the learning objectives and evaluation metrics.
+
+- **`objective`**  
+  Specifies the learning task:  
+  - `"reg:squarederror"`: Regression with squared loss (default).
+  - `"binary:logistic"`: Logistic regression for binary classification.
+  - `"multi:softprob"`: Multiclass classification (returns probabilities).
+  - `"multi:softmax"`: Multiclass classification (returns class labels).
+
+- **`eval_metric`**  
+  Metric for evaluation during training. Common options:  
+  - `"rmse"`: Root mean squared error (regression).
+  - `"logloss"`: Log loss (binary classification).
+  - `"error"`: Binary classification error rate.
+  - `"merror"`: Multiclass classification error rate.
+
+- **`base_score`**  
+  Initial prediction score for all instances. Default: `0.5`.
+
+- **`num_class`**  
+  Number of classes (required for multiclass classification).
+
+---
+
+### **4. Command-Line Parameters**
+Used for system-level control during training.
+
+- **`num_boost_round`**  
+  Number of boosting iterations (trees).
+
+- **`early_stopping_rounds`**  
+  Stops training if validation metric doesn’t improve after a specified number of rounds.
+
+- **`maximize`**  
+  Whether to maximize or minimize the evaluation metric.
+
+- **`tree_method`**  
+  Algorithm for tree construction:
+  - `"auto"`: Automatically chooses based on data size.
+  - `"exact"`: Exact greedy algorithm.
+  - `"approx"`: Approximate greedy algorithm for large datasets.
+  - `"hist"`: Histogram-based algorithm for efficient training.
+
+---
+
+### **5. Regularization and Optimization**
+- **`learning_rate` (Alias for `eta`)**  
+  Controls the weight of new trees.
+
+- **`max_leaves`**  
+  Maximum number of leaves in a tree (used in `hist` tree method).
+
+- **`max_bin`**  
+  Maximum number of bins for feature discretization in `hist`.
+
+---
+
+### **Hyperparameter Tuning Tips**
+1. Start with default values and incrementally tune one parameter at a time.
+2. Use cross-validation to evaluate the model and avoid overfitting.
+3. Focus on the most impactful parameters:  
+   - `learning_rate`, `max_depth`, `min_child_weight`, `subsample`, `colsample_bytree`.
+4. For large datasets, prefer `tree_method='hist'` for faster training. 
+
