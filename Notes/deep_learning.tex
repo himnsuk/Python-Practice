@@ -158,8 +158,12 @@ Consider the problem of classifying points in 2D space into two categories (posi
 \section{ Summary:}
 \begin{itemize}
    \item [-] The {\bf perceptron} is the simplest form of a neural network model and serves as a linear binary classifier.
-   \item [-] It works by calculating a {\bf weighted sum** of its inputs, adding a **bias**, and passing the result through an **activation function} (step function).
-   \item [-] {\bf Weights** and **bias** are adjusted during training based on errors in classification using a **learning rule}.
+   \item [-] It works by calculating a {\bf weighted sum} 
+   of its inputs, adding a {\bf bias}, and passing the result 
+   through an {\bf activation function} (step function).
+   \item [-] {\bf Weights} and {\bf bias} are adjusted 
+   during training based on errors in classification 
+   using a {\bf learning rule}.
 \end{itemize}
 
 This simple yet powerful idea laid the foundation for modern neural networks and deep learning models.
@@ -519,7 +523,11 @@ Where:
 Stride defines how much the filter shifts over the input matrix at each step. A stride of 1 means the filter moves by 1 pixel, and larger strides lead to downsampling by skipping pixels. This reduces the output size.
 
 \subsection{ 4. {\bf Activation Function}:}
-After the convolution, a {\bf non-linear activation function** is applied to the output of the convolution operation. The most commonly used activation function is **ReLU (Rectified Linear Unit)}, which is defined as:
+After the convolution, a {\bf non-linear activation function} is applied 
+to the output of the convolution operation. 
+The most commonly used activation function is 
+{\bf ReLU (Rectified Linear Unit)}, which is 
+defined as:
 
 $$
 f(x) = \max(0, x)
@@ -576,7 +584,7 @@ Where:
 \end{itemize}
 
 \section{ Backpropagation in CNN:}
-Training a CNN involves adjusting the weights of the filters and fully connected layers to minimize the loss function (e.g., cross-entropy loss for classification). This is done using {\bf backpropagation** with **gradient descent}.
+Training a CNN involves adjusting the weights of the filters and fully connected layers to minimize the loss function (e.g., cross-entropy loss for classification). This is done using {\bf backpropagation} with {\bf gradient descent}.
 
 \subsection{Steps in Backpropagation:}
 
@@ -677,7 +685,7 @@ The gradients are calculated using the chain rule and accumulate across time ste
    \item {\bf Exploding gradients}: Gradients can grow exponentially during backpropagation, leading to unstable updates.
 \end{enumerate}
 
-These issues are often mitigated by using variants like {\bf LSTM** (Long Short-Term Memory) or **GRU} (Gated Recurrent Units), which introduce gates to better control the flow of information.
+These issues are often mitigated by using variants like {\bf LSTM} (Long Short-Term Memory) or {\bf GRU} (Gated Recurrent Units), which introduce gates to better control the flow of information.
 
 \section{ Summary of Operations:}
 For each time step $( t )$:
@@ -700,7 +708,12 @@ This structure allows the RNN to capture sequential dependencies and patterns in
 \section {Exploding and Vanishing Gradient Problem}
 
 
-The {\bf vanishing** and **exploding gradient problems} are common challenges when training deep neural networks, especially recurrent neural networks (RNNs) and deep feedforward networks. These problems occur during backpropagation when gradients either shrink exponentially (vanishing) or grow exponentially (exploding) as they propagate backward through layers.
+The {\bf vanishing} and {\bf exploding} gradient problems 
+are common challenges when 
+training deep neural networks, especially recurrent neural networks (RNNs) 
+and deep feedforward networks. These problems occur during backpropagation 
+when gradients either shrink exponentially (vanishing) or grow exponentially 
+(exploding) as they propagate backward through layers.
 
 Let’s break down how these problems occur and the mathematical solutions to mitigate them.
 
@@ -749,7 +762,7 @@ Careful initialization of weights can also mitigate the vanishing gradient probl
      
 \end{itemize}
 \subsection{ Solution 3: LSTMs and GRUs in RNNs}
-For RNNs, {\bf LSTM** (Long Short-Term Memory) and **GRU} (Gated Recurrent Units) architectures help overcome the vanishing gradient problem by incorporating gating mechanisms (forget gate, input gate, and output gate). These gates control how much information is retained or forgotten over time, ensuring gradients can flow better over long sequences.
+For RNNs, {\bf LSTM} (Long Short-Term Memory) and {\bf GRU} (Gated Recurrent Units) architectures help overcome the vanishing gradient problem by incorporating gating mechanisms (forget gate, input gate, and output gate). These gates control how much information is retained or forgotten over time, ensuring gradients can flow better over long sequences.
 
 \section{ Exploding Gradient Problem}
 
@@ -852,8 +865,12 @@ f_t = \sigma(W_f \cdot [h_{t-1}, x_t] + b_f)
 \]
 
 Where:
-- \( \sigma \) is the sigmoid activation function.
-- \( [h_{t-1}, x_t] \) is the concatenation of the previous hidden state and the current input.
+\begin{itemize}
+   \item [-] \( \sigma \) is the sigmoid activation function.
+   \item [-] \( [h_{t-1}, x_t] \) is the concatenation of the previous hidden state and the current input.
+\end{itemize}
+
+
 
 The forget gate output \( f_t \) is a vector of values between 0 and 1, which will be used to scale the previous cell state.
 
@@ -874,7 +891,7 @@ Then, the candidate cell state \( \tilde{C}_t \), which represents the new infor
 
 The input gate \( i_t \) determines how much of this candidate state \( \tilde{C}_t \) is added to the current memory.
 
-\subsection{ 3. Update Cell State \( C_t \)}
+\subsection{ Update Cell State \( C_t \)}
 Now, we update the {\bf cell state} \( C_t \) using both the forget gate and the input gate. The forget gate determines how much of the previous memory \( C_{t-1} \) to retain, while the input gate determines how much of the new candidate memory \( \tilde{C}_t \) to add.
 
 \[
@@ -1046,13 +1063,13 @@ In the attention-based encoder-decoder model, the decoder does not use a single 
 
 \section{ Transformer Architecture (Without Recurrent Units)}
 
-The {\bf Transformer** model is another form of encoder-decoder architecture but does away with the recurrence seen in RNNs and LSTMs. Instead, it relies entirely on **self-attention mechanisms} to process both the input and output sequences.
+The {\bf Transformer} model is another form of encoder-decoder architecture but does away with the recurrence seen in RNNs and LSTMs. Instead, it relies entirely on {\bf self-attention mechanisms} to process both the input and output sequences.
 
 \subsection{ Self-Attention (Key, Query, and Value)}
 In transformers, self-attention is computed at each layer of both the encoder and decoder.
 
 \begin{enumerate}
-   \item {\bf Key, Query, Value**: For each word in the sequence, three vectors are computed: the **query** \( Q \), **key** \( K \), and **value} \( V \) vectors. These are derived by multiplying the input vector \( x_i \) by learnable weight matrices:
+   \item {\bf Key, Query, Value}: For each word in the sequence, three vectors are computed: the {\bf query} \( Q \), {\bf key} \( K \), and {\bf value} \( V \) vectors. These are derived by multiplying the input vector \( x_i \) by learnable weight matrices:
       \[
       Q = W_Q \cdot x_i, \quad K = W_K \cdot x_i, \quad V = W_V \cdot x_i
       \]
@@ -1063,7 +1080,7 @@ In transformers, self-attention is computed at each layer of both the encoder an
       \]
       Where \( d_k \) is the dimensionality of the key vectors.
    
-   \item {\bf Multi-head attention**: The transformer employs **multi-head attention}, where the attention mechanism is run multiple times in parallel (with different sets of weight matrices) and the results are concatenated.
+   \item {\bf Multi-head attention}: The transformer employs {\bf multi-head attention}, where the attention mechanism is run multiple times in parallel (with different sets of weight matrices) and the results are concatenated.
 \end{enumerate}
 
 The transformer architecture significantly improves the speed and scalability of sequence-to-sequence tasks by removing the sequential dependencies inherent in RNNs, and it excels in long-range dependency tasks like translation and text generation.
