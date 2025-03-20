@@ -88,5 +88,5 @@ WITH recursive cte_count AS
 SELECT n,
        rand_val
 FROM   cte_count -- Invocation
-``
+```
 

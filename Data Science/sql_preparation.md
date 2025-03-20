@@ -1,5 +1,4 @@
-# SQL Interview Preparation
----
+SQL Interview Preparation
 ---
 
 ### Cast Functions and Operators
@@ -641,3 +640,438 @@ CREATE MATERIALIZED VIEW [ schema_name. ] materialized_view_name
 ### Execution Order
 
 ![Execution Order](sql/execution_order_sql.png)
+
+---
+Difference b/w CTE and Temp Tables
+---
+
+Both **CTEs (Common Table Expressions)** and **Temp Tables** are used in SQL to store temporary result sets, but they have key differences in terms of usage, scope, and performance. Here's a breakdown to help you understand and remember the differences:
+
+---
+
+### 1. **CTE (Common Table Expression)**
+   - **Definition**: A CTE is a temporary result set that exists only during the execution of a single query. It is defined using the `WITH` clause.
+   - **Syntax**:
+     ```sql
+     WITH cte_name AS (
+         SELECT column1, column2
+         FROM table_name
+         WHERE condition
+     )
+     SELECT * FROM cte_name;
+     ```
+   - **Scope**: 
+     - A CTE is only accessible within the query where it is defined.
+     - It cannot be reused in other queries or sessions.
+   - **Lifetime**:
+     - A CTE exists only for the duration of the query execution.
+     - Once the query completes, the CTE is discarded.
+   - **Performance**:
+     - CTEs are not stored physically in the database.
+     - They are more like inline views and are optimized as part of the query execution plan.
+   - **Use Cases**:
+     - Simplifying complex queries by breaking them into smaller, more readable parts.
+     - Recursive queries (e.g., hierarchical data like organizational charts).
+
+---
+
+### 2. **Temp Table**
+   - **Definition**: A temp table is a physical table that is created temporarily in the database and can store data for the duration of a session or transaction.
+   - **Syntax**:
+     ```sql
+     CREATE TEMPORARY TABLE temp_table_name AS (
+         SELECT column1, column2
+         FROM table_name
+         WHERE condition
+     );
+     ```
+   - **Scope**:
+     - A temp table is accessible within the session or transaction where it is created.
+     - It can be reused across multiple queries in the same session.
+   - **Lifetime**:
+     - A temp table exists until the session ends or it is explicitly dropped.
+     - In some databases (e.g., SQL Server), temp tables are automatically dropped when the session ends.
+   - **Performance**:
+     - Temp tables are stored physically in the database (usually in a temporary storage space like `tempdb` in SQL Server).
+     - They can have indexes, statistics, and constraints, which can improve performance for complex queries.
+   - **Use Cases**:
+     - Storing intermediate results for reuse across multiple queries.
+     - Handling large datasets that require indexing or partitioning.
+     - Performing batch processing or ETL operations.
+
+---
+
+### Key Differences Between CTEs and Temp Tables
+
+| Feature                | CTE                              | Temp Table                      |
+|------------------------|----------------------------------|---------------------------------|
+| **Scope**              | Limited to the query where it is defined | Accessible across multiple queries in the same session |
+| **Lifetime**           | Exists only during query execution | Exists until the session ends or it is explicitly dropped |
+| **Storage**            | Not stored physically            | Stored physically in the database (e.g., `tempdb`) |
+| **Performance**        | Optimized as part of the query   | Can have indexes, statistics, and constraints for better performance |
+| **Reusability**        | Cannot be reused outside the query | Can be reused across multiple queries |
+| **Use Cases**          | Simplifying complex queries, recursive queries | Storing intermediate results, batch processing |
+
+---
+
+### When to Use CTEs vs. Temp Tables
+- **Use CTEs**:
+  - When you need a temporary result set for a single query.
+  - When you want to simplify complex queries or perform recursive operations.
+  - When you don’t need to reuse the result set across multiple queries.
+
+- **Use Temp Tables**:
+  - When you need to store intermediate results for reuse across multiple queries.
+  - When you are working with large datasets and need indexing or partitioning for performance.
+  - When you need to persist data temporarily for the duration of a session.
+
+---
+
+### Pro Tip to Remember
+- Think of a **CTE** as a **disposable view** that exists only for the duration of a single query.
+- Think of a **Temp Table** as a **physical table** that exists temporarily in the database and can be reused.
+
+By understanding these differences and practicing with real-world examples, you'll never confuse CTEs and temp tables again!
+
+---
+Aggregate function list
+---
+
+SQL aggregate functions are used to perform calculations on a set of values and return a single value. They are commonly used in `GROUP BY` clauses to summarize data. Here's a list of the most commonly used SQL aggregate functions:
+
+---
+
+### 1. **COUNT**
+   - **Purpose**: Counts the number of rows in a result set.
+   - **Syntax**:
+     ```sql
+     COUNT(column_name)
+     ```
+   - **Example**:
+     ```sql
+     SELECT COUNT(*) FROM employees; -- Counts all rows
+     SELECT COUNT(department_id) FROM employees; -- Counts non-null values in department_id
+     ```
+
+---
+
+### 2. **SUM**
+   - **Purpose**: Calculates the sum of numeric values in a column.
+   - **Syntax**:
+     ```sql
+     SUM(column_name)
+     ```
+   - **Example**:
+     ```sql
+     SELECT SUM(salary) FROM employees; -- Sum of all salaries
+     ```
+
+---
+
+### 3. **AVG**
+   - **Purpose**: Calculates the average of numeric values in a column.
+   - **Syntax**:
+     ```sql
+     AVG(column_name)
+     ```
+   - **Example**:
+     ```sql
+     SELECT AVG(salary) FROM employees; -- Average salary
+     ```
+
+---
+
+### 4. **MIN**
+   - **Purpose**: Finds the minimum value in a column.
+   - **Syntax**:
+     ```sql
+     MIN(column_name)
+     ```
+   - **Example**:
+     ```sql
+     SELECT MIN(salary) FROM employees; -- Minimum salary
+     ```
+
+---
+
+### 5. **MAX**
+   - **Purpose**: Finds the maximum value in a column.
+   - **Syntax**:
+     ```sql
+     MAX(column_name)
+     ```
+   - **Example**:
+     ```sql
+     SELECT MAX(salary) FROM employees; -- Maximum salary
+     ```
+
+---
+
+### 6. **GROUP_CONCAT** (MySQL) / **STRING_AGG** (SQL Server, PostgreSQL)
+   - **Purpose**: Concatenates values from multiple rows into a single string.
+   - **Syntax**:
+     ```sql
+     GROUP_CONCAT(column_name SEPARATOR ', ') -- MySQL
+     STRING_AGG(column_name, ', ') -- SQL Server, PostgreSQL
+     ```
+   - **Example**:
+     ```sql
+     SELECT department_id, GROUP_CONCAT(employee_name SEPARATOR ', ') 
+     FROM employees 
+     GROUP BY department_id; -- Concatenates employee names by department
+     ```
+
+---
+
+### 7. **VAR_POP** / **VAR_SAMP**
+   - **Purpose**: Calculates the population variance (`VAR_POP`) or sample variance (`VAR_SAMP`) of a set of values.
+   - **Syntax**:
+     ```sql
+     VAR_POP(column_name)
+     VAR_SAMP(column_name)
+     ```
+   - **Example**:
+     ```sql
+     SELECT VAR_POP(salary) FROM employees; -- Population variance of salaries
+     SELECT VAR_SAMP(salary) FROM employees; -- Sample variance of salaries
+     ```
+
+---
+
+### 8. **STDDEV_POP** / **STDDEV_SAMP**
+   - **Purpose**: Calculates the population standard deviation (`STDDEV_POP`) or sample standard deviation (`STDDEV_SAMP`) of a set of values.
+   - **Syntax**:
+     ```sql
+     STDDEV_POP(column_name)
+     STDDEV_SAMP(column_name)
+     ```
+   - **Example**:
+     ```sql
+     SELECT STDDEV_POP(salary) FROM employees; -- Population standard deviation of salaries
+     SELECT STDDEV_SAMP(salary) FROM employees; -- Sample standard deviation of salaries
+     ```
+
+---
+
+### 9. **ARRAY_AGG** (PostgreSQL)
+   - **Purpose**: Aggregates values into an array.
+   - **Syntax**:
+     ```sql
+     ARRAY_AGG(column_name)
+     ```
+   - **Example**:
+     ```sql
+     SELECT department_id, ARRAY_AGG(employee_name) 
+     FROM employees 
+     GROUP BY department_id; -- Aggregates employee names into arrays by department
+     ```
+
+---
+
+### 10. **JSON_ARRAYAGG** (MySQL, PostgreSQL)
+   - **Purpose**: Aggregates values into a JSON array.
+   - **Syntax**:
+     ```sql
+     JSON_ARRAYAGG(column_name)
+     ```
+   - **Example**:
+     ```sql
+     SELECT department_id, JSON_ARRAYAGG(employee_name) 
+     FROM employees 
+     GROUP BY department_id; -- Aggregates employee names into JSON arrays by department
+     ```
+
+---
+
+### 11. **BIT_AND** / **BIT_OR** / **BIT_XOR**
+   - **Purpose**: Performs bitwise operations on a set of values.
+   - **Syntax**:
+     ```sql
+     BIT_AND(column_name)
+     BIT_OR(column_name)
+     BIT_XOR(column_name)
+     ```
+   - **Example**:
+     ```sql
+     SELECT BIT_AND(flags) FROM permissions; -- Bitwise AND of flags
+     SELECT BIT_OR(flags) FROM permissions; -- Bitwise OR of flags
+     SELECT BIT_XOR(flags) FROM permissions; -- Bitwise XOR of flags
+     ```
+
+---
+
+### 12. **APPROX_COUNT_DISTINCT** (BigQuery, Spark SQL)
+   - **Purpose**: Provides an approximate count of distinct values in a column (useful for large datasets).
+   - **Syntax**:
+     ```sql
+     APPROX_COUNT_DISTINCT(column_name)
+     ```
+   - **Example**:
+     ```sql
+     SELECT APPROX_COUNT_DISTINCT(user_id) FROM logs; -- Approximate distinct user IDs
+     ```
+
+---
+
+### Summary Table of Aggregate Functions
+
+| Function               | Purpose                                      |
+|------------------------|----------------------------------------------|
+| `COUNT()`              | Counts rows or non-null values               |
+| `SUM()`                | Sums numeric values                          |
+| `AVG()`                | Calculates the average of numeric values     |
+| `MIN()`                | Finds the minimum value                     |
+| `MAX()`                | Finds the maximum value                     |
+| `GROUP_CONCAT()`       | Concatenates values into a string (MySQL)    |
+| `STRING_AGG()`         | Concatenates values into a string (SQL Server, PostgreSQL) |
+| `VAR_POP()` / `VAR_SAMP()` | Calculates variance                        |
+| `STDDEV_POP()` / `STDDEV_SAMP()` | Calculates standard deviation       |
+| `ARRAY_AGG()`          | Aggregates values into an array (PostgreSQL) |
+| `JSON_ARRAYAGG()`      | Aggregates values into a JSON array          |
+| `BIT_AND()` / `BIT_OR()` / `BIT_XOR()` | Performs bitwise operations       |
+| `APPROX_COUNT_DISTINCT()` | Approximate count of distinct values      |
+
+---
+
+### Pro Tip
+- Aggregate functions are often used with the `GROUP BY` clause to group data before applying the function.
+- Use `DISTINCT` inside aggregate functions (e.g., `COUNT(DISTINCT column_name)`) to count or calculate unique values.
+
+By understanding these functions and practicing with real-world examples, you'll master SQL aggregation!
+
+---
+Logical Order of execution
+---
+
+Understanding the **logical order of SQL query processing** is crucial for writing efficient and accurate queries. The logical order determines how SQL evaluates and executes different parts of a query. Here's a breakdown of the steps in a way that's easy to remember:
+
+---
+
+### Logical Order of SQL Query Processing
+
+1. **FROM** (and JOINs)
+2. **WHERE**
+3. **GROUP BY**
+4. **HAVING**
+5. **SELECT**
+6. **DISTINCT**
+7. **ORDER BY**
+8. **LIMIT** / **OFFSET**
+
+---
+
+### Step-by-Step Explanation
+
+#### 1. **FROM (and JOINs)**
+   - **What Happens**: The query starts by identifying the tables and joining them (if necessary).
+   - **Why It Matters**: This step creates a working dataset by combining rows from one or more tables.
+   - **Example**:
+     ```sql
+     FROM employees
+     JOIN departments ON employees.department_id = departments.id
+     ```
+
+#### 2. **WHERE**
+   - **What Happens**: Filters rows based on specified conditions.
+   - **Why It Matters**: Reduces the dataset by removing rows that don't meet the criteria.
+   - **Example**:
+     ```sql
+     WHERE employees.salary > 50000
+     ```
+
+#### 3. **GROUP BY**
+   - **What Happens**: Groups rows that have the same values in specified columns.
+   - **Why It Matters**: Prepares the data for aggregation (e.g., `COUNT`, `SUM`, `AVG`).
+   - **Example**:
+     ```sql
+     GROUP BY department_id
+     ```
+
+#### 4. **HAVING**
+   - **What Happens**: Filters groups based on conditions (used after `GROUP BY`).
+   - **Why It Matters**: Allows filtering of aggregated results.
+   - **Example**:
+     ```sql
+     HAVING COUNT(employees.id) > 10
+     ```
+
+#### 5. **SELECT**
+   - **What Happens**: Selects the columns to include in the final result set.
+   - **Why It Matters**: Determines what data is returned.
+   - **Example**:
+     ```sql
+     SELECT department_id, AVG(salary) AS avg_salary
+     ```
+
+#### 6. **DISTINCT**
+   - **What Happens**: Removes duplicate rows from the result set.
+   - **Why It Matters**: Ensures unique values in the output.
+   - **Example**:
+     ```sql
+     SELECT DISTINCT department_id
+     ```
+
+#### 7. **ORDER BY**
+   - **What Happens**: Sorts the result set by specified columns.
+   - **Why It Matters**: Organizes the output in a meaningful way.
+   - **Example**:
+     ```sql
+     ORDER BY avg_salary DESC
+     ```
+
+#### 8. **LIMIT / OFFSET**
+   - **What Happens**: Limits the number of rows returned and skips a specified number of rows.
+   - **Why It Matters**: Controls pagination or restricts the size of the result set.
+   - **Example**:
+     ```sql
+     LIMIT 10 OFFSET 20
+     ```
+
+---
+
+### Visual Representation
+To remember the order, think of it as a **funnel** that narrows down the data step by step:
+
+```
+FROM → WHERE → GROUP BY → HAVING → SELECT → DISTINCT → ORDER BY → LIMIT/OFFSET
+```
+
+---
+
+### Pro Tip: Use a Mnemonic
+To make it even easier to remember, use this mnemonic:
+**"Frogs With Green Hats Sing Delightful Odes Loudly."**
+
+- **F**rogs → **F**ROM
+- **W**ith → **W**HERE
+- **G**reen → **G**ROUP BY
+- **H**ats → **H**AVING
+- **S**ing → **S**ELECT
+- **D**elightful → **D**ISTINCT
+- **O**des → **O**RDER BY
+- **L**oudly → **L**IMIT/OFFSET
+
+---
+
+### Why This Order Matters
+- **Efficiency**: Understanding the order helps you write queries that minimize unnecessary processing (e.g., filtering early with `WHERE`).
+- **Accuracy**: Ensures you apply conditions and transformations in the correct sequence.
+- **Debugging**: Helps you identify why a query might not be returning the expected results.
+
+---
+
+### Example Query with Logical Order
+```sql
+SELECT department_id, AVG(salary) AS avg_salary
+FROM employees
+JOIN departments ON employees.department_id = departments.id
+WHERE employees.salary > 50000
+GROUP BY department_id
+HAVING COUNT(employees.id) > 10
+ORDER BY avg_salary DESC
+LIMIT 5;
+```
+
+---
+
+By understanding the logical order and using the mnemonic, you'll never forget how SQL processes queries!

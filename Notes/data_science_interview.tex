@@ -1,0 +1,800 @@
+\documentclass[12pt]{book}
+
+\usepackage{amsmath}       % For mathematical equations
+\usepackage{listings}      % For code listings
+\usepackage{xcolor}        % For colored code
+\usepackage{hyperref}      % For hyperlinks
+\usepackage{graphicx}      % For images
+
+% Code Styling
+\lstset{
+  language=Python,                  % Default programming language
+  basicstyle=\ttfamily\small,       % Font style and size
+  keywordstyle=\color{blue},        % Color of keywords
+  commentstyle=\color{green!50!black}, % Color of comments
+  stringstyle=\color{red},          % Color of strings
+  frame=single,                     % Frame around code
+  numbers=left,                     % Line numbers on the left
+  numberstyle=\tiny\color{gray},    % Style for line numbers
+}
+
+\begin{document}
+
+\frontmatter
+\title{Data Science Interview Preparation}
+\author{HIMANSHU KESARVANI}
+\date{\today}
+\maketitle
+
+\tableofcontents
+
+\mainmatter
+
+\chapter{Introduction}
+This is notes to reviese for interview
+
+\section{Getting Started}
+This is a section.
+
+\subsection{Subsection Example}
+This is a subsection.
+
+\chapter{Basic Statistics}
+
+\section{Mean, Mediun, Mode}
+
+\subsubsection*{Mean}
+The mean is the \textbf{average of a set of numbers}. It's also known as the arithmetic mean. To calculate the mean, you add up all the numbers in the set and divide by the total number of numbers.
+
+\subsubsection*{Median}
+In statistics, \textbf {the median is the middle value of a list of data} when arranged in order. It can be more descriptive of a data set than the average.
+
+\subsubsection*{Mode}
+In statistics, the mode is the \textbf {value that appears most often in a set of data}. It's one of the three measures of central tendency, along with the mean and median.
+
+\subsection*{Variance}
+\subsubsection*{Sample Variance}
+\[
+    s^2 = \frac{\sum_{j=1}^n (x_i - \bar x)^2}{n-1}
+\]
+
+\subsubsection*{Population Variance}
+\[
+    \sigma^2= \frac{\sum_{j=1}^n (x_i - \bar x)^2}{N}
+\]
+
+
+
+\subsection*{Standard Deviation}
+
+\subsubsection*{Sample Standard Deviation}
+
+\[
+s = \sqrt {s^2} = \sqrt {\frac{\sum_{j=1}^n (x_i - \bar x)^2}{n-1}}
+\]
+
+\subsection*{Population Standard Deviation}
+
+\[
+    \sigma = \sqrt {\sigma^2}= \sqrt {\frac{\sum_{j=1}^n (x_i - \bar x)^2}{N}}
+\]
+
+\includegraphics[width=0.5\textwidth]{assets/images/statistics/basic-statistics/excel-formulae.png} 
+
+\clearpage
+
+\subsection*{Skewness } 
+
+is a way to describe the symmetry of a distribution.
+
+A distribution is \textbf{left skewed} if it has a “tail” on the left side of the distribution: 
+
+\includegraphics[width=0.5\textwidth]{assets/images/statistics/basic-statistics/left-skew.png} 
+    
+A distribution is \textbf{right skewed} if it has a “tail” on the right side of the distribution:
+
+\includegraphics[width=0.5\textwidth]{assets/images/statistics/basic-statistics/right-skew.png}
+
+
+
+
+
+
+\subsection*{Properties of Skewed Distributions }
+
+The following diagrams show where the mean, median and mode are typically located in different distributions.
+
+\textbf {Left Skewed Distribution}: \(Mean < Median < Mode\)
+
+\includegraphics[width=0.5\textwidth]{assets/images/statistics/basic-statistics/left-skew-distribution.png}
+
+\textbf{Right Skewed Distribution}: Mode < Median < Mean
+
+\includegraphics[width=0.5\textwidth]{assets/images/statistics/basic-statistics/right-skew-distribution.png}
+
+\subsection*{Using Box Plots to Visualize Skewness}
+
+A box plot is a type of plot that displays the five number summary of a dataset, which includes:
+\begin{itemize}
+    \item The minimum value
+    \item The first quartile (the 25th percentile)
+    \item The median value
+    \item The third quartile (the 75th percentile)
+    \item The maximum value
+\end{itemize}
+  
+To make a box plot, we draw a box from the first to the third quartile. Then we draw a vertical line at the median. Lastly, we draw “whiskers” from the quartiles to the minimum and maximum value.
+
+\includegraphics[width=0.5\textwidth]{assets/images/statistics/basic-statistics/skewness-with-box-plot.png} % Replace with your image file
+
+
+\includegraphics[width=0.5\textwidth]{assets/images/statistics/basic-statistics/whishker-plot-details.png} % Replace with your image file
+
+\clearpage
+
+\subsection*{Random Variable}
+
+Explaining a random variable to an interviewer involves breaking down the concept in a clear and concise manner. Here's a potential explanation:
+
+"A random variable is a mathematical concept used in probability theory and statistics to model and quantify uncertain outcomes. It represents a numerical quantity that can take on different values depending on the outcome of a random process. This process could be the result of a random experiment or an uncertain event.
+
+There are two types of random variables: discrete and continuous. 
+
+\begin{enumerate}
+    \item \textbf{Discrete Random Variable:}
+    \begin{itemize}
+        \item Takes on a finite or countably infinite set of distinct values.
+        \item Examples include the number of heads in multiple coin tosses or the outcome of rolling a six-sided die.
+    \end{itemize}
+    \item \textbf{Continuous Random Variable:}
+    \begin{itemize}
+        \item Can take on any value within a range.
+        \item Examples include the height of a person, the temperature at a given time, or the time it takes for a computer to process a task.
+    \end{itemize}
+\end{enumerate}
+
+
+Random variables are often denoted by letters (e.g., X, Y) and are characterized by their probability distribution, which describes the likelihood of each possible outcome. The probability distribution can be expressed through a probability mass function (for discrete variables) or a probability density function (for continuous variables).
+
+Understanding random variables is crucial in analyzing and making predictions about uncertain events, allowing us to quantify the uncertainty associated with different outcomes and make informed decisions based on probability theory."
+
+\clearpage
+
+\subsection*{Bias Variance}
+
+\paragraph*{Bias-Variance Tradeoff -}The \textbf{Bias-Variance Tradeoff} is a fundamental concept in machine learning that describes the balance between two sources of error in a model: \textbf{bias} and \textbf{variance}. Understanding this tradeoff helps to choose the right model complexity and improve model performance by reducing both error sources.
+
+\subsubsection*{Key Concepts:}
+
+\begin{enumerate}
+    \item \textbf{Bias}
+    \begin{itemize}
+        \item [-] Bias is the error due to \textbf{oversimplification} of the model.
+        \item [-] A model with high bias tends to underfit the data because it makes \textbf{strong assumptions} about the data.
+        \item [-] This leads to poor performance on both training and test data.
+    \end{itemize}
+    \item \textbf{Variance}
+    \begin{itemize}
+        \item [-] Variance is the error due to the model being \textbf{too sensitive} to small fluctuations in the training data.
+        \item [-] A model with high variance tends to overfit the data because it becomes \textbf{too complex}, capturing noise along with the signal.
+        \item [-] While it may perform well on training data, it often performs poorly on unseen test data.
+    \end{itemize}
+    \item \textbf{Noise}
+    \begin{itemize}
+        \item [-] Noise refers to the random error or irreducible error that cannot be modeled by the algorithm. It is part of the data and can’t be reduced, so the goal is to minimize bias and variance while accepting some level of noise.
+    \end{itemize}
+\end{enumerate}
+
+
+\subsubsection*{Understanding the Bias-Variance Tradeoff:}
+
+The \textbf{Bias-Variance Tradeoff} describes the balancing act between:
+
+\begin{itemize}
+    \item [-] \textbf{Bias} (how well the model fits the data) and 
+    \item [-] \textbf{Variance} (how sensitive the model is to changes in the training data).
+
+\end{itemize}
+
+When you increase the complexity of a model (e.g., by adding more parameters), the \textbf{bias decreases} but the \textbf{variance increases}. Similarly, simplifying the model decreases variance but increases bias.
+
+The goal in machine learning is to find a model that minimizes both bias and variance to achieve the \textbf{lowest possible error} on unseen data.
+
+\subsubsection*{Graphical Representation:}
+
+Imagine a curve where:
+
+\begin{itemize}
+    \item [-] On the \textbf{x-axis}, we have model complexity.
+    \item [-] On the \textbf{y-axis}, we have error (test error, bias, variance).
+    \item [-] \textbf{High Bias Region (Underfitting)}: At the left end of the graph, the model is too simple, resulting in high bias (underfitting). Both training and test errors are high.
+    \item [-] \textbf{High Variance Region (Overfitting)}: At the right end, the model is too complex, resulting in high variance (overfitting). Training error is low, but test error is high.
+    \item [-] \textbf{Optimal Point}: The sweet spot in the middle is where the tradeoff is balanced, and the model has the lowest possible test error.
+\end{itemize}
+
+\subsubsection*{Formula for Error:}
+The total \textbf{error} (expected loss) of a model can be expressed as:
+
+\[
+\text{Error} = \text{Bias}^2 + \text{Variance} + \text{Irreducible Noise}
+\]
+
+\begin{itemize}
+    \item [-] \textbf{Bias}: Measures how far the predicted values are from the true values.
+    \item [-] \textbf{Variance}: Measures how much the predictions for a given point vary across different training sets.
+    \item [-] \textbf{Irreducible Noise}: Represents randomness in the data that no model can explain.
+\end{itemize}
+
+
+\subsubsection*{Examples to Explain:}
+\begin{enumerate}
+    \item \textbf{High Bias Example (Underfitting)} Imagine trying to fit a \textbf{linear model} to a complex, non-linear dataset (e.g., quadratic data). The model is too simple to capture the underlying pattern, so it will have \textbf{high bias} and will perform poorly on both the training set and test set. This is known as \textbf{underfitting}.
+    \begin{itemize}
+        \item [-] \textbf{Bias}: High (because the model doesn't capture the complexity of the data).
+        \item [-] \textbf{Variance}: Low (because the model does not change much with different training sets).
+    \end{itemize}
+    \item \textbf{High Variance Example (Overfitting)} Now imagine fitting a \textbf{high-degree polynomial} to the same dataset. The model becomes too complex and fits the training data almost perfectly, even capturing the noise in the data. When this model is applied to unseen test data, it performs poorly because it has \textbf{memorized} the training data rather than generalizing the underlying pattern. This is called \textbf{overfitting}.
+    \begin{itemize}
+        \item [-] \textbf{Bias}: Low (because the model fits the training data well).
+        \item [-] \textbf{Variance}: High (because the model is overly sensitive to changes in the training data).
+    \end{itemize}
+    \item \textbf{Balanced Model Example:} The goal is to find a \textbf{middle ground}, such as a \textbf{second-degree polynomial} for a quadratic dataset. This model is complex enough to capture the underlying pattern without overfitting the noise. It generalizes well to unseen data and achieves \textbf{low test error}.
+    \begin{itemize}
+        \item [-] \textbf{Bias}: Moderate (the model captures the main trend without over-simplifying).
+        \item [-] \textbf{Variance}: Moderate (the model doesn't change drastically with different training sets).
+    \end{itemize}
+\end{enumerate}
+
+
+\subsubsection*{Visual Explanation:}
+\begin{itemize}
+    \item [-] \textbf{Underfitting (High Bias)}: Imagine a dartboard. A model with high bias will have darts that are far away from the center (true value) but are all clustered together. This means the model is consistently wrong because of its oversimplification.
+    \item [-] \textbf{Overfitting (High Variance)}: In contrast, a model with high variance will have darts that are scattered all over the dartboard. Some may hit the center, but others are far away because the model is too sensitive to small changes.
+    \item [-] \textbf{Balanced Model}: The ideal model will have darts that are close to the center and well-clustered, meaning the model is both accurate and consistent.
+\end{itemize}
+
+
+\subsubsection*{Bias-Variance Tradeoff in Action:}
+
+\begin{itemize}
+    \item [-] \textbf{High Bias}: When the model is too simple, it fails to capture the true relationship in the data, leading to \textbf{underfitting}. Both training and test errors are high.
+    \item [-] \textbf{High Variance}: When the model is too complex, it fits the training data too well (including the noise), leading to \textbf{overfitting}. The training error is low, but the test error is high.
+    \item [-] \textbf{Optimal Tradeoff}: The best model is the one that balances bias and variance, achieving the lowest error on unseen test data.
+\end{itemize}
+
+
+\subsubsection*{Choosing the Right Model Complexity:}
+
+\begin{itemize}
+    \item [-] \textbf{Simpler Models} (e.g., linear regression, shallow decision trees) are prone to high bias and are likely to underfit.
+    \item [-] \textbf{Complex Models} (e.g., deep neural networks, high-degree polynomials) are prone to high variance and are likely to overfit.
+    \item [-] \textbf{Regularization} techniques like \textbf{Lasso} and \textbf{Ridge Regression} can help reduce variance by penalizing complexity and preventing overfitting.
+\end{itemize}
+
+
+\subsubsection*{Summary:}
+
+\begin{itemize}
+    \item [-] \textbf{Bias}: The error due to overly simplistic assumptions. Leads to underfitting.
+    \item [-] \textbf{Variance}: The error due to excessive sensitivity to small fluctuations. Leads to overfitting.
+    \item [-] The \textbf{Bias-Variance Tradeoff} shows that improving one usually worsens the other. The goal is to find a balance between bias and variance for optimal model performance.
+\end{itemize}
+
+\clearpage
+
+\subsection*{\textbf{Standardization vs. Normalization}}
+
+Both standardization and normalization are techniques used in data preprocessing to adjust the scale of the data. These methods are particularly useful in machine learning and statistical modeling.
+
+
+\subsection*{\textbf{Standardization}}
+
+\begin{itemize}
+    \item [-] \textbf{Definition}: It rescales data to have a mean of\textbf{0} and a standard deviation of\textbf{1} (unit variance). 
+    \item [-] \textbf{Formula}:
+    \[
+        z = \frac{x - \mu}{\sigma}
+    \]
+    where:
+    \begin{itemize}
+        \item [-] \( x \) is the data point,
+        \item [-] \( \mu \) is the mean of the dataset,
+        \item [-] \( \sigma \) is the standard deviation of the dataset.
+    \end{itemize}
+\end{itemize}
+
+\textbf{Use case}: Standardization is often used when the dataset contains features with different units (e.g., age in years and income in dollars) and algorithms like SVMs or logistic regression assume features are normally distributed.
+
+\textbf{Example}:
+Suppose we have a dataset with a feature:
+\[
+[10, 20, 30, 40, 50]
+\]
+\begin{itemize}
+    \item [-] Mean (\( \mu \)) = \( 30 \),
+    \item [-] Standard deviation (\( \sigma \)) = \( 14.14 \).
+\end{itemize}
+
+Standardized values:
+\[
+\text{Standardized values} = \left[ \frac{10-30}{14.14}, \frac{20-30}{14.14}, \frac{30-30}{14.14}, \frac{40-30}{14.14}, \frac{50-30}{14.14} \right]
+\]
+
+Result:
+\[
+[-1.41, -0.71, 0, 0.71, 1.41]
+\]
+
+
+\subsection*{\textbf{Normalization}}
+
+\begin{itemize}
+    \item [-] \textbf{Definition}: It rescales the data to fit within a specific range, typically\textbf{[0, 1]}. 
+    \item [-] \textbf{Formula}:
+    \[
+    x_{\text{norm}} = \frac{x - x_{\text{min}}}{x_{\text{max}} - x_{\text{min}}}
+    \]
+    where:
+    \begin{itemize}
+        \item [-] \( x \) is the data point,
+        \item [-] \( x_{\text{min}} \) and \( x_{\text{max}} \) are the minimum and maximum values in the dataset.
+    \end{itemize}
+
+\end{itemize}
+
+
+\textbf{Use case}: Normalization is used when the data needs to be constrained within a fixed range, such as for neural networks or distance-based algorithms like k-NN.
+
+\textbf{Example}:
+Using the same dataset:
+\[
+[10, 20, 30, 40, 50]
+\]
+\begin{itemize}
+    \item [-] Minimum (\( x_{\text{min}} \)) = \( 10 \),
+    \item [-] Maximum (\( x_{\text{max}} \)) = \( 50 \).
+\end{itemize}
+
+
+Normalized values:
+\[
+\text{Normalized values} = \left[ \frac{10-10}{50-10}, \frac{20-10}{50-10}, \frac{30-10}{50-10}, \frac{40-10}{50-10}, \frac{50-10}{50-10} \right]
+\]
+Result:
+\[
+[0, 0.25, 0.5, 0.75, 1]
+\]
+
+
+
+\subsection*{\textbf{Key Differences}}
+
+% |\textbf{Aspect}              |\textbf{Standardization}                        |\textbf{Normalization}                      |
+% |--------------------------|--------------------------------------------|----------------------------------------|
+% |\textbf{Range}               | No fixed range (mean = 0, SD = 1)          | Fixed range, typically [0, 1]          |
+% |\textbf{Effect on outliers}  | Less sensitive to outliers                 | Highly sensitive to outliers           |
+% |\textbf{When to use}         | When features follow Gaussian distribution | When scaling to a specific range is needed |
+
+\begin{tabular}{|p{3cm}|p{4cm}|p{5cm}|}
+    \hline
+    \textbf{Aspect}              & \textbf{Standardization}                   & \textbf{Normalization}   \\ \hline
+    \textbf{Range}               & No fixed range (mean = 0, SD = 1)          & Fixed range, typically [0, 1]          \\ \hline
+    \textbf{Effect on outliers}  & Less sensitive to outliers                 & Highly sensitive to outliers           \\ \hline
+    \textbf{When to use}         & When features follow Gaussian distribution & When scaling to a specific range is needed \\ \hline
+\end{tabular}
+
+
+
+\subsection*{\textbf{Summary}}
+
+\begin{itemize}
+    \item [-] \textbf{Standardization} focuses on centering data (mean=0, SD=1).
+    \item [-] \textbf{Normalization} rescales data to a bounded range, such as [0, 1].
+\end{itemize}
+
+
+\chapter{Linear Regression}
+
+\section{Interpretation of linear regression}
+
+If all the co-efficent of X is zero in linear regression
+
+\paragraph*{Intercept}{If X sometimes equals 0, the intercept is simply the expected mean value of Y at that value.}
+
+
+\subsubsection*{The Definition of the Constant is Correct but Misleading}
+
+The constant is often defined as the mean of the dependent variable when you set all of the independent variables in your model to zero. In a purely mathematical sense, this definition is correct. Unfortunately, it’s frequently impossible to set all variables to zero because this combination can be an impossible or irrational arrangement.
+
+\includegraphics[width=0.5\textwidth]{assets/images/statistics/linear-regression/2022-11-21-08-38-31.png}
+
+
+
+\paragraph*{}A portion of the estimation process for the y-intercept is based on the exclusion of relevant variables from the regression model. When you leave relevant variables out, this can produce bias in the model. Bias exists if the residuals have an overall positive or negative mean. In other words, the model tends to make predictions that are systematically too high or too low. The constant term prevents this overall bias by forcing the residual mean to equal zero.
+
+
+\paragraph*{}Imagine that you can move the regression line up or down to the point where the residual mean equals zero. For example, if the regression produces residuals with a positive average, just move the line up until the mean equals zero. This process is how the constant ensures that the regression model satisfies the critical assumption that the residual average equals zero. However, this process does not focus on producing a y-intercept that is meaningful for your study area. Instead, it focuses entirely on providing that mean of zero.
+
+\paragraph*{}The constant ensures the residuals don’t have an overall bias, but that might make it meaningless.
+
+\subsubsection*{interpretation of negative intercept in regression model}
+Depending on your dependent/outcome variable, a negative value for your \(\text{constant}/\text{intercept}\) should not be a cause for concern. This simply means that the expected value on your dependent variable will be less than 0 when all independent/predictor variables are set to 0.
+
+
+
+\subsection{The Seven Classical OLS Assumptions}
+Like many statistical analyses, ordinary least squares (OLS) regression has underlying assumptions. When these classical assumptions for linear regression are true, ordinary least squares produces the best estimates. However, if some of these assumptions are not true, you might need to employ remedial measures or use other estimation methods to improve the results.
+
+Many of these assumptions describe properties of the error term. Unfortunately, the error term is a population value that we’ll never know. Instead, we’ll use the next best thing that is available—the residuals. Residuals are the sample estimate of the error for each observation.
+
+\[
+\text{Residuals} = \text{Observed value} - \text{The fitted value}
+\]
+
+When it comes to checking OLS assumptions, assessing the residuals is crucial!
+
+There are seven classical OLS assumptions for linear regression. The first six are mandatory to produce the best estimates. While the quality of the estimates does not depend on the seventh assumption, analysts often evaluate it for other important reasons that I’ll cover.
+
+\subsubsection{OLS Assumption 1: The regression model is linear in the coefficients and the error term}
+This assumption addresses the functional form of the model. In statistics, a regression model is linear when all terms in the model are either the constant or a parameter multiplied by an independent variable. You build the model equation only by adding the terms together. These rules constrain the model to one type:
+
+\[
+Y =\beta _{0} + \beta _{1}X_{1} + \beta _{2}X_{2} + \cdots + \beta _{k}X_{k} + \epsilon
+\]
+
+In the equation, the betas \(\beta s\) are the parameters that OLS estimates. Epsilon \(\epsilon\) is the random error.
+
+In fact, the defining characteristic of linear regression is this functional form of the parameters rather than the ability to model curvature. Linear models can model curvature by including nonlinear variables such as polynomials and transforming exponential functions.
+
+To satisfy this assumption, the correctly specified model must fit the linear pattern.
+
+Related posts: The Difference Between Linear and Nonlinear Regression and How to Specify a Regression Model
+
+\subsubsection{OLS Assumption 2: The error term has a population mean of zero}
+The error term accounts for the variation in the dependent variable that the independent variables do not explain. Random chance should determine the values of the error term. For your model to be unbiased, the average value of the error term must equal zero.
+
+Suppose the average error is +7. This non-zero average error indicates that our model systematically underpredicts the observed values. Statisticians refer to systematic error like this as bias, and it signifies that our model is inadequate because it is not correct on average.
+
+Stated another way, we want the expected value of the error to equal zero. If the expected value is +7 rather than zero, part of the error term is predictable, and we should add that information to the regression model itself. We want only random error left for the error term.
+
+You don’t need to worry about this assumption when you include the constant in your regression model because it forces the mean of the residuals to equal zero. For more information about this assumption, read my post about the regression constant.
+
+\subsubsection{OLS Assumption 3: All independent variables are uncorrelated with the error term}
+If an independent variable is correlated with the error term, we can use the independent variable to predict the error term, which violates the notion that the error term represents unpredictable random error. We need to find a way to incorporate that information into the regression model itself.
+
+This assumption is also referred to as exogeneity. When this type of correlation exists, there is endogeneity. Violations of this assumption can occur because there is simultaneity between the independent and dependent variables, omitted variable bias, or measurement error in the independent variables.
+
+Violating this assumption biases the coefficient estimate. To understand why this bias occurs, keep in mind that the error term always explains some of the variability in the dependent variable. However, when an independent variable correlates with the error term, OLS incorrectly attributes some of the variance that the error term actually explains to the independent variable instead. For more information about violating this assumption, read my post about confounding variables and omitted variable bias.
+
+Related post: What are Independent and Dependent Variables?
+
+\subsubsection{OLS Assumption 4: Observations of the error term are uncorrelated with each other}
+One observation of the error term should not predict the next observation. For instance, if the error for one observation is positive and that systematically increases the probability that the following error is positive, that is a positive correlation. If the subsequent error is more likely to have the opposite sign, that is a negative correlation. This problem is known both as serial correlation and autocorrelation. Serial correlation is most likely to occur in time series models.
+
+For example, if sales are unexpectedly high on one day, then they are likely to be higher than average on the next day. This type of correlation isn’t an unreasonable expectation for some subject areas, such as inflation rates, GDP, unemployment, and so on.
+
+Assess this assumption by graphing the residuals in the order that the data were collected. You want to see randomness in the plot. In the graph for a sales model, there is a cyclical pattern with a positive correlation.
+
+Residuals versus order plot to check the OLS assumption for no serial correlation.
+As I’ve explained, if you have information that allows you to predict the error term for an observation, you must incorporate that information into the model itself. To resolve this issue, you might need to add an independent variable to the model that captures this information. Analysts commonly use distributed lag models, which use both current values of the dependent variable and past values of independent variables.
+
+For the sales model above, we need to add variables that explains the cyclical pattern.
+
+Serial correlation reduces the precision of OLS estimates. Analysts can also use time series analysis for time dependent effects.
+
+An alternative method for identifying autocorrelation in the residuals is to assess the autocorrelation function, which is a standard tool in time series analysis.
+
+Related post: Introduction to Time Series Analysis
+
+\subsubsection{OLS Assumption 5: The error term has a constant variance (no heteroscedasticity)}
+The variance of the errors should be consistent for all observations. In other words, the variance does not change for each observation or for a range of observations. This preferred condition is known as homoscedasticity (same scatter). If the variance changes, we refer to that as heteroscedasticity (different scatter).
+
+The easiest way to check this assumption is to create a residuals versus fitted value plot. On this type of graph, heteroscedasticity appears as a cone shape where the spread of the residuals increases in one direction. In the graph below, the spread of the residuals increases as the fitted value increases.
+
+Residuals by fitted values plot that displays heteroscedasticity, which violates an OLS assumption.
+Heteroscedasticity reduces the precision of the estimates in OLS linear regression.
+
+Related post: Heteroscedasticity in Regression Analysis
+
+Note: When assumption 4 (no autocorrelation) and 5 (homoscedasticity) are both true, statisticians say that the error term is independent and identically distributed (IID) and refer to them as spherical errors.
+
+\subsubsection{OLS Assumption 6: No independent variable is a perfect linear function of other explanatory variables}
+Perfect correlation occurs when two variables have a Pearson’s correlation coefficient of +1 or -1. When one of the variables changes, the other variable also changes by a completely fixed proportion. The two variables move in unison.
+
+Perfect correlation suggests that two variables are different forms of the same variable. For example, games won and games lost have a perfect negative correlation (-1). The temperature in Fahrenheit and Celsius have a perfect positive correlation (+1).
+
+Ordinary least squares cannot distinguish one variable from the other when they are perfectly correlated. If you specify a model that contains independent variables with perfect correlation, your statistical software can’t fit the model, and it will display an error message. You must remove one of the variables from the model to proceed.
+
+Perfect correlation is a show stopper. However, your statistical software can fit OLS regression models with imperfect but strong relationships between the independent variables. If these correlations are high enough, they can cause problems. Statisticians refer to this condition as multicollinearity, and it reduces the precision of the estimates in OLS linear regression.
+
+Related post: Multicollinearity in Regression Analysis: Problems, Detection, and Solutions
+
+\subsubsection{OLS Assumption 7: The error term is normally distributed (optional)}
+OLS does not require that the error term follows a normal distribution to produce unbiased estimates with the minimum variance. However, satisfying this assumption allows you to perform statistical hypothesis testing and generate reliable confidence intervals and prediction intervals.
+
+The easiest way to determine whether the residuals follow a normal distribution is to assess a normal probability plot. If the residuals follow the straight line on this type of graph, they are normally distributed. They look good on the plot below!
+
+Normal probability plot to assess whether the residuals follow a normal distribution and satisfy the OLS assumption.
+If you need to obtain p-values for the coefficient estimates and the overall test of significance, check this assumption!
+
+
+\subsubsection{PROPERTIES OF LEAST SQUARES}
+
+\begin{enumerate}
+    \item Mean of estimated residuals = 0, \( \sum \frac {\hat \epsilon}{n} = 0 \)
+    \item Sum of squared residuals is minimized.
+    \item Sample correlation between x and \(\hat \epsilon\) is zero (i.e., x and \(\hat \epsilon\) are uncorrelated) \(r\{x, \hat \epsilon\} = 0\)
+    \item Sample correlation between \(\hat y\) and \(\hat \epsilon \) is zero
+    \item Regression line always goes through the mean of x and y, i.e., the regression line goes through point \((\bar x, \bar y)\)
+\end{enumerate}
+
+
+ \textbf{AIC (Akaike Information Criterion), BIC (Bayesian Information Criterion), and AICc (Corrected AIC)} are statistical tools used to compare models and select the one that best explains the data while penalizing for model complexity to avoid overfitting. Here’s a detailed mathematical explanation:
+
+\begin{enumerate}
+    \item \textbf{Akaike Information Criterion (AIC)} - AIC estimates the quality of a model by balancing goodness-of-fit with model complexity.
+    \textbf{Formula for AIC:} - 
+    \[
+    \text{AIC} = -2 \ln(\hat{L}) + 2k
+    \]
+
+    Where:
+    \begin{itemize}
+        \item [-] \(( \hat{L} )\): Maximum likelihood of the model (fit to the data).
+        \item [-] \(( k )\): Number of parameters in the model (including intercept).
+        \item [-] \(( -2 \ln(\hat{L}) )\): Deviance or negative log-likelihood of the model.
+    \end{itemize}
+    \textbf{Interpretation:}
+    \begin{itemize}
+        \item [-] The first term ($( -2 \ln(\hat{L}) )$) rewards goodness-of-fit (lower values indicate better fit).
+        \item [-] The second term ($( 2k )$) penalizes for the number of parameters to discourage overfitting.
+    \end{itemize}
+    \item \textbf{Bayesian Information Criterion (BIC)}
+    BIC is similar to AIC but introduces a stronger penalty for model complexity, especially for larger datasets.
+
+    \textbf{Formula for BIC:}
+    \[
+        \text{BIC} = -2 \ln(\hat{L}) + k \ln(n)
+    \]
+    Where:
+    \begin{itemize}
+        \item [-] \(( n )\): Number of data points (sample size).
+        \item [-] Other terms (\(( \hat{L} )\), \(( k )\)) are as defined for AIC.
+    \end{itemize}
+    \textbf{Interpretation:}
+    \begin{itemize}
+        \item [-] The penalty term ($( k \ln(n) )$) increases with sample size, making BIC more conservative than AIC for large datasets.
+        \item [-] Prefer models with lower BIC values.
+    \end{itemize}
+
+    \item \textbf{Corrected Akaike Information Criterion (AICc)}
+    AICc is a corrected version of AIC designed for small sample sizes, where AIC may overfit. \\
+    \textbf{Formula for AICc:} - 
+    \[
+    \text{AICc} = \text{AIC} + \frac{2k(k+1)}{n - k - 1}
+    \]
+    Where:
+    \begin{itemize}
+        \item [-] \(( n )\): Number of data points.
+        \item [-] \(( k )\): Number of parameters in the model.
+        \item [-] Other terms are as defined for AIC.
+    \end{itemize}
+
+    \textbf{Interpretation} -
+    \begin{itemize}
+        \item [-] The correction term ($( \frac{2k(k+1)}{n - k - 1} )$) increases the penalty when $( n )$ is small relative to $( k )$.
+        \item [-] As $( n \to \infty )$, AICc converges to AIC.
+    \end{itemize}
+
+    \item Model Selection Criteria
+    \begin{itemize}
+        \item [-] \textbf{AIC}: Prefer smaller AIC values. Use for general-purpose model selection.
+        \item [-] \textbf{BIC}: Prefer smaller BIC values. Use when you want a stronger penalty for complexity.
+        \item [-] \textbf{AICc}: Prefer smaller AICc values. Use for small sample sizes ($( n/k < 40 )$).
+    \end{itemize}
+
+    \item  Log-Likelihood and Deviance
+    To calculate (\( \ln(\hat{L}) )\):
+    \[
+    \ln(\hat{L}) = -\frac{n}{2} \ln(2\pi\sigma^2) - \frac{\text{RSS}}{2\sigma^2}
+    \]
+    Where:
+    \begin{itemize}
+        \item [-] \(( \sigma^2 )\): Variance of residuals.
+        \item [-] \(( \text{RSS} )\): Residual Sum of Squares.
+    \end{itemize}
+
+    \item Comparison of Criteria
+    \begin{itemize}
+        \item [-] AIC and AICc focus on prediction accuracy and trade off \\ goodness-of-fit and complexity.
+        \item [-] BIC adds a stronger penalty for complexity, favoring simpler models as \(( n )\) increases.
+        \item [-] \textbf{Relationship:}
+        \[
+          \text{AICc} > \text{AIC}, \quad \text{BIC} > \text{AIC} \text{ (for large $( n )$)}.
+        \]
+    \end{itemize}
+
+    \item Practical Example
+    For \(( k = 3 ), ( n = 100 ), and ( \hat{L} = 0.8 )\):
+    \begin{enumerate}
+        \item \(( \ln(\hat{L}) = \ln(0.8) = -0.223 )\).
+        \item Calculate:
+        \begin{itemize}
+            \item  [-] \(( \text{AIC} = -2(-0.223) + 2(3) = 6.446 )\).
+            \item [-] \(( \text{BIC} = -2(-0.223) + 3\ln(100) = 14.006 )\).
+            \item [-] \(( \text{AICc} = 6.446 + \frac{2(3)(3+1)}{100 - 3 - 1} = 6.698 )\).
+        \end{itemize}
+    \end{enumerate}
+\end{enumerate}
+
+\textbf{Key Points}
+\begin{itemize}
+    \item [-] Lower AIC, BIC, or AICc indicates a better model.
+    \item [-] Use \textbf{AIC} for prediction-oriented tasks, \textbf{BIC} for model parsimony, and \textbf{AICc} for small datasets.
+\end{itemize}
+
+\paragraph*{Parsimony - } A parsimonious model aims to explain the data with the minimum number of variables or parameters necessary, avoiding unnecessary complexity.
+
+\section{Understanding R-squared: In depth}
+
+\subsection*{ \textbf{Simplified Definition of R-squared}}
+
+R-squared, or the \textbf{coefficient of determination}, is a statistical measure that tells us how well a regression model explains the variability of the dependent variable (target) using the independent variables (features). 
+
+\begin{itemize}
+    \item [-] It answers the question: \textbf{"How much of the variation in the target variable can be explained by the model?"}
+    \item [-] R-squared values range from \textbf{0 to 1}:
+    \begin{enumerate}
+        \item The model explains none of the variation in the target variable.
+        \item The model perfectly explains all the variation in the target variable.
+    \end{enumerate}
+      
+\end{itemize}
+
+
+\subsection*{ \textbf{Mathematical Explanation}}
+
+The formula for R-squared is:
+\[
+R^2 = 1 - \frac{\text{SS}_{\text{res}}}{\text{SS}_{\text{tot}}}
+\]
+
+Where:
+
+\begin{enumerate}
+    \item \(\text{SS}_{\text{res}}\) (\textbf{Residual Sum of Squares}): The total squared difference between the actual values (\(y_i\)) and the predicted values (\(\hat{y}_i\)):
+            \[
+            \text{SS}_{\text{res}} = \sum_{i=1}^n (y_i - \hat{y}_i)^2
+            \]
+   \item \(\text{SS}_{\text{tot}}\) (\textbf{Total Sum of Squares}): The total squared difference between the actual values (\(y_i\)) and their mean (\(\bar{y}\)):
+        \[
+        \text{SS}_{\text{tot}} = \sum_{i=1}^n (y_i - \bar{y})^2
+        \]
+\end{enumerate}
+
+\subsection*{ \textbf{Interpretation}}
+
+\begin{itemize}
+    \item [-] \(R^2 = 1\): All predictions are perfect (\(\text{SS}_{\text{res}} = 0\)).
+    \item [-] \(R^2 = 0\): The model is as good as simply predicting the mean of \(y\) (\(\text{SS}_{\text{res}} = \text{SS}_{\text{tot}}\)).
+    \item [-] \(R^2 < 0\): The model performs worse than predicting the mean, indicating a poor fit.
+\end{itemize}
+
+\subsection*{ \textbf{Simplified Example}}
+
+Suppose you're predicting house prices:
+1. If \(R^2 = 0.85\), this means \textbf{85\% of the variability in house prices is explained by your model}. 
+2. The remaining 15\% is due to other factors not captured by the model or random noise.
+
+
+\subsection*{ \textbf{How to Explain to Others Easily}}
+\(R^2\) is like a report card for your regression model. It tells you how much of the 'story' your model captures about the target variable. If it's close to 1, the model is great. If it's closer to 0, the model isn't doing a good job. Think of it as the percentage of information your model explains.
+
+Would you like a visual example or a Python code snippet to compute R-squared?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\chapter{Including Code}
+\section{Python Example}
+Here’s how you can include code:
+\begin{lstlisting}
+# This is a Python example
+def hello_world():
+    print("Hello, world!")
+hello_world()
+\end{lstlisting}
+
+\chapter{Adding Figures}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.5\textwidth]{example-image} % Replace with your image file
+\caption{Example of an image.}
+\label{fig:example}
+\end{figure}
+
+\backmatter
+\end{document}

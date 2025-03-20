@@ -43,8 +43,10 @@ There are two typical ways to measure accuracy for QA:
       % \]
 
       Where:
-      - $(N)$ is the total number of questions in the dataset.
-      - $(\mathbf{1}(\cdot))$ is an indicator function that equals 1 if the condition is true (i.e., the predicted start and end positions match the true start and end positions), and 0 otherwise.
+      \begin{itemize}
+         \item [-]$(N)$ is the total number of questions in the dataset.
+         \item [-]$(\mathbf{1}(\cdot))$ is an indicator function that equals 1 if the condition is true (i.e., the predicted start and end positions match the true start and end positions), and 0 otherwise.
+      \end{itemize}
 
       { \bf Example }: 
       Suppose you have 100 questions and the BERT model correctly predicts the start and end positions for 80 of them. The EM accuracy would be:

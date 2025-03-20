@@ -248,15 +248,15 @@ The **Gini index** and **entropy** are two common metrics used to measure the im
 
 The Gini index, or Gini impurity, measures the frequency at which any element of a dataset would be mislabeled if it was randomly labeled according to the distribution of labels in the subset. It ranges from 0 (perfect purity, all instances belong to a single class) to 1 (maximum impurity, instances are evenly distributed among classes).
 
-The formula for the Gini index \( G(S) \) of a dataset \( S \) is:
+The formula for the Gini index $( G(S) )$ of a dataset $( S )$ is:
 
-\[
+$$
 G(S) = 1 - \sum_{i=1}^{c} p_i^2
-\]
+$$
 
 where:
-- \( c \) is the number of classes.
-- \( p_i \) is the proportion of instances belonging to class \( i \).
+- $( c )$ is the number of classes.
+- $( p_i )$ is the proportion of instances belonging to class $( i )$.
 
 **Example:**
 For a dataset with 3 classes (A, B, C) where the class distribution is:
@@ -267,46 +267,46 @@ For a dataset with 3 classes (A, B, C) where the class distribution is:
 Total instances = 10.
 
 The proportions of each class are:
-- \( p_A = \frac{3}{10} = 0.3 \)
-- \( p_B = \frac{2}{10} = 0.2 \)
-- \( p_C = \frac{5}{10} = 0.5 \)
+- $( p_A = \frac{3}{10} = 0.3 )$
+- $( p_B = \frac{2}{10} = 0.2 )$
+- $( p_C = \frac{5}{10} = 0.5 )$
 
 Calculating the Gini index:
 
-\[
+$$
 G(S) = 1 - (0.3^2 + 0.2^2 + 0.5^2) = 1 - (0.09 + 0.04 + 0.25) = 1 - 0.38 = 0.62
-\]
+$$
 
 ### Entropy
 
-Entropy, on the other hand, measures the amount of uncertainty or disorder within a dataset. It also ranges from 0 (perfect purity) to \(\log_2(c)\) (maximum disorder). The formula for entropy \( H(S) \) is:
+Entropy, on the other hand, measures the amount of uncertainty or disorder within a dataset. It also ranges from 0 (perfect purity) to $(\log_2(c))$ (maximum disorder). The formula for entropy $( H(S) )$ is:
 
-\[
+$$
 H(S) = -\sum_{i=1}^{c} p_i \log_2(p_i)
-\]
+$$
 
-Where \( p_i \) is the same as previously defined.
+Where $( p_i )$ is the same as previously defined.
 
 **Example:**
 Using the same class distribution as before:
 
 Calculating the entropy:
 
-\[
+$$
 H(S) = -\left( p_A \log_2(p_A) + p_B \log_2(p_B) + p_C \log_2(p_C) \right)
-\]
+$$
 
 Substituting the values:
 
-\[
+$$
 H(S) = -\left( 0.3 \log_2(0.3) + 0.2 \log_2(0.2) + 0.5 \log_2(0.5) \right) \approx -\left( 0.3 \cdot (-1.737) + 0.2 \cdot (-2.321) + 0.5 \cdot (-1) \right)
-\]
+$$
 
 Calculating:
 
-\[
+$$
 H(S) \approx 0.521 + 0.464 + 0.5 \approx 1.485
-\]
+$$
 
 ### Comparison and Usage
 
@@ -331,3 +331,82 @@ H(S) \approx 0.521 + 0.464 + 0.5 \approx 1.485
 ### Conclusion
 
 Both the Gini index and entropy are valuable tools for decision trees, and the choice between them often depends on the specific application context, dataset characteristics, and computational considerations. You can experiment with both metrics within your modeling framework to see which yields better results for your particular problem. Most decision tree implementations in libraries (such as `scikit-learn`) allow you to choose between Gini and entropy, facilitating quick experimentation.
+
+
+---
+---
+
+Decision trees are versatile machine learning algorithms used for both classification and regression tasks. Several algorithms exist for constructing decision trees, each with its methods for splitting the data. Below are the primary types of decision tree algorithms and the methods they use for splitting:
+
+### 1. CART (Classification and Regression Trees)
+
+- **Type**: Can be used for both classification and regression tasks.
+- **Splitting Method**: 
+  - For **classification**, CART uses the **Gini index** or **entropy** (information gain) to determine the best split.
+  - For **regression**, it uses the **mean squared error (MSE)** or **mean absolute error (MAE)** to minimize the variance in outputs between the parent node and the child nodes. 
+- **Output**: Produces binary trees (each node has either two children).
+
+### 2. C4.5
+
+- **Type**: Primarily used for classification tasks.
+- **Splitting Method**: 
+  - Utilizes **gain ratio**, which is a modification of information gain. The gain ratio normalizes the information gain by taking into account the intrinsic information of a split.
+  - Handles both categorical and continuous attributes by converting continuous values into discrete ranges.
+- **Output**: Allows for multi-way splits (nodes can have more than two children).
+
+### 3. C5.0
+
+- **Type**: An extension of C4.5 that improves upon it.
+- **Splitting Method**: Similar to C4.5 with enhancements for better performance and handling of large datasets.
+- **Output**: Also supports boosting, which means it can be used to create an ensemble of trees to improve the overall performance.
+
+### 4. ID3 (Iterative Dichotomiser 3)
+
+- **Type**: Primarily for classification tasks.
+- **Splitting Method**: 
+  - Uses **information gain** to select the attribute that yields the highest reduction in entropy. Each decision node is made based on the attribute that provides the most information.
+- **Output**: Can lead to overfitting, as it does not prune the tree. Also, only allows for categorical data.
+
+### 5. CHAID (Chi-squared Automatic Interaction Detector)
+
+- **Type**: Can be used for both classification and regression.
+- **Splitting Method**: 
+  - Employs the **chi-squared test** to evaluate the relationship between the target variable and the predictor variables. 
+  - Chooses splits based on statistically significant associations.
+- **Output**: Can produce multi-way splits and is often used in market research and social sciences.
+
+### 6. MARS (Multivariate Adaptive Regression Splines)
+
+- **Type**: Mainly used for regression.
+- **Splitting Method**: 
+  - Involves a recursive partitioning approach but splits the data based on linear combinations of the predictors, instead of traditional splits.
+  - Constructs piecewise linear functions to model complex relationships.
+- **Output**: Provides smoother and more flexible approximations than traditional decision trees.
+
+### 7. Random Forest
+
+- **Type**: Ensemble method based on decision trees, applicable for both classification and regression.
+- **Splitting Method**: 
+  - Each decision tree in the forest is built using a subset of the training data and a random subset of features at each split. 
+  - The individual trees use either CART or another splitting method.
+- **Output**: Gives a robust prediction by averaging outputs from multiple decision trees, reducing overfitting.
+
+### 8. Gradient Boosted Trees
+
+- **Type**: Ensemble method targeting both classification and regression tasks.
+- **Splitting Method**: 
+  - Builds trees sequentially; each new tree aims to correct the errors made by the previously constructed trees.
+  - Uses loss functions related to the task (e.g., logistic loss for binary classification) and can utilize methods like CART for splitting.
+- **Output**: Often leads to high predictive accuracy and is used extensively in competitions and real-world applications.
+
+### Summary
+
+In summary, there are various algorithms for constructing decision trees, each with distinct methods for splitting nodes:
+
+- **Gini index / Entropy** (CART)
+- **Information gain / Gain ratio** (ID3, C4.5, C5.0)
+- **Chi-squared test** (CHAID)
+- **Linear combinations** (MARS)
+- **Random sampling of data/attributes** in ensemble approaches (Random Forest, Gradient Boosted Trees).
+
+The choice of algorithm and splitting method can significantly affect the model's performance. Therefore, the decision should be based on the specific characteristics of the dataset, the problem domain, and the requirements for interpretability or computational efficiency.
