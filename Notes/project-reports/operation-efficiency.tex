@@ -1,0 +1,322 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+
+\subsubsection{\texorpdfstring{\textbf{1. Project
+Overview}}{1. Project Overview}}\label{project-overview}
+
+\textbf{Problem Statement:}\\
+Financial institutions face a growing backlog of suspicious transactions
+flagged by rule-based systems. Analysts manually review these alerts by
+collecting data from multiple sources (e.g., online portals, mainframe
+systems), a process that is \textbf{time-consuming, error-prone, and
+inefficient}. With transaction volumes rising, the manual review process
+cannot scale, leading to delays in detecting genuine fraud.
+
+\textbf{Need for Automation:}\\
+The goal is to \textbf{automate data collection} and \textbf{prioritize
+high-risk transactions} using machine learning (ML), reducing analyst
+workload and accelerating decision-making.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{\texorpdfstring{\textbf{2. Process
+Analysis}}{2. Process Analysis}}\label{process-analysis}
+
+\textbf{Existing Workflow:}\\
+1. An analyst receives a flagged transaction.\\
+2. \textbf{Manual Data Collection:}\\
+- Log into 3-4 web portals (e.g., customer profiles, transaction
+history).\\
+- Query mainframe systems via terminal emulators (e.g., AS400).\\
+- Copy-paste data into Word/Excel for review.\\
+3. \textbf{Time Breakdown:}\\
+- Portal navigation: \textbf{8--10 minutes/transaction}.\\
+- Data validation: \textbf{5--7 minutes/transaction}.\\
+- Total: \textbf{15--20 minutes/transaction}.
+
+\textbf{Inefficiencies:}\\
+- Repetitive tasks dominate 80\% of the workflow.\\
+- Analysts handle only \textbf{30--40 alerts/day}, leading to backlogs.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{\texorpdfstring{\textbf{3. Solution
+Development}}{3. Solution Development}}\label{solution-development}
+
+\textbf{Desktop Automation Tool:}\\
+- Built with \textbf{PySimpleGUI} (user interface), \textbf{Beautiful
+Soup/WebDriver} (web scraping), \textbf{PyAutoGUI} (GUI automation).\\
+- \textbf{Workflow:}\\
+1. Auto-login to portals/systems.\\
+2. Extract transaction details and customer history.\\
+3. Save consolidated data to a \textbf{Word document} (for analysts) and
+\textbf{SQL Server} (for ML training).
+
+\textbf{Significance of 50--60K Records:}\\
+- A large dataset enables robust ML model training, capturing patterns
+in both fraudulent and legitimate transactions.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{\texorpdfstring{\textbf{4. Machine Learning
+Model}}{4. Machine Learning Model}}\label{machine-learning-model}
+
+\paragraph{\texorpdfstring{\textbf{Data
+Preparation}}{Data Preparation}}\label{data-preparation}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Label Conversion:} Convert labels (e.g., ``fraud''/``not
+  fraud'') to numerical IDs (0/1).\\
+\item
+  \textbf{Train/Test Split:} 80\% training, 20\% validation/test.\\
+\item
+  \textbf{Dataset Format:} Use HuggingFace \texttt{Dataset} objects for
+  seamless integration with ML libraries.
+\end{itemize}
+
+\paragraph{\texorpdfstring{\textbf{Tokenization}}{Tokenization}}\label{tokenization}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{RoBERTa Tokenizer:} Breaks text (e.g., transaction notes) into
+  subwords.\\
+\item
+  \textbf{Settings:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{max\_length=512} (truncate/pad sequences to this length).\\
+  \item
+    \texttt{padding="max\_length"}, \texttt{truncation=True}
+    (standardize input size).
+  \end{itemize}
+\end{itemize}
+
+\paragraph{\texorpdfstring{\textbf{Model
+Architecture}}{Model Architecture}}\label{model-architecture}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Base Model:} Pre-trained \textbf{RoBERTa} (exceles at text
+  understanding).\\
+\item
+  \textbf{Classification Head:} Added on top to predict fraud
+  probability (2 output classes).
+\end{itemize}
+
+\paragraph{\texorpdfstring{\textbf{Training
+Configuration}}{Training Configuration}}\label{training-configuration}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Batch Size:} 16 (fits GPU memory).\\
+\item
+  \textbf{Learning Rate:} 2e-5 (avoids overwriting pre-trained
+  knowledge).\\
+\item
+  \textbf{Epochs:} 3--4 (prevents overfitting).\\
+\item
+  \textbf{Mixed Precision Training:} Speeds up training with NVIDIA
+  GPUs.
+\end{itemize}
+
+\paragraph{\texorpdfstring{\textbf{Metrics}}{Metrics}}\label{metrics}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Accuracy:} Overall correctness.\\
+\item
+  \textbf{Macro F1-Score:} Balances precision/recall across imbalanced
+  classes.
+\end{itemize}
+
+\paragraph{\texorpdfstring{\textbf{Training
+Process}}{Training Process}}\label{training-process}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{HuggingFace Trainer API:} Handles gradient accumulation
+  (simulates larger batches) and logging (track loss/metrics).
+\end{itemize}
+
+\paragraph{\texorpdfstring{\textbf{Model
+Saving}}{Model Saving}}\label{model-saving}
+
+\begin{itemize}
+\tightlist
+\item
+  Save model weights, tokenizer, and label mappings for reproducibility.
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{\texorpdfstring{\textbf{5. Validation
+Process}}{5. Validation Process}}\label{validation-process}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Load Model:} Use saved weights to initialize the model.\\
+\item
+  \textbf{Test Data Preparation:} Tokenize test data identically to
+  training.\\
+\item
+  \textbf{Custom Trainer:} Captures raw predictions (logits) for metric
+  calculation.\\
+\item
+  \textbf{Prediction \& Metrics:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Classification Report:} Precision, recall, F1 per class.\\
+  \item
+    \textbf{Confusion Matrix:} Visualize false positives/negatives.
+  \end{itemize}
+\end{enumerate}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{\texorpdfstring{\textbf{6. Deployment and
+Monitoring}}{6. Deployment and Monitoring}}\label{deployment-and-monitoring}
+
+\textbf{Deployment Steps:}\\
+1. Package model into a Docker container.\\
+2. Expose as an API (e.g., FastAPI/Flask) for real-time predictions.\\
+3. Deploy on cloud (AWS/GCP) with auto-scaling.
+
+\textbf{Monitoring:}\\
+- Track \textbf{latency}, \textbf{throughput}, and \textbf{model drift}
+(e.g., Prometheus/Grafana).\\
+- Log predictions to detect anomalies (e.g., sudden drop in F1-score).
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{\texorpdfstring{\textbf{7. Handling Data Drift and
+Re-Training}}{7. Handling Data Drift and Re-Training}}\label{handling-data-drift-and-re-training}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Detect Drift:} Statistical tests (e.g., Kolmogorov-Smirnov) on
+  feature distributions.\\
+\item
+  \textbf{Re-Training:}
+
+  \begin{enumerate}
+  \def\labelenumi{\arabic{enumi}.}
+  \tightlist
+  \item
+    Triggered when drift exceeds a threshold.\\
+  \item
+    Fine-tune model on new data + historical data to retain prior
+    knowledge.
+  \end{enumerate}
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{\texorpdfstring{\textbf{8. Scaling the
+Solution}}{8. Scaling the Solution}}\label{scaling-the-solution}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Horizontal Scaling:} Add more API servers behind a load
+  balancer.\\
+\item
+  \textbf{Batch Processing:} Use Spark/Dask for large overnight
+  inference jobs.\\
+\item
+  \textbf{Database Optimization:} Sharding/partitioning in SQL Server
+  for faster queries.
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{\texorpdfstring{\textbf{Example
+Workflow}}{Example Workflow}}\label{example-workflow}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  An analyst opens the desktop tool, which auto-fetches transaction
+  data.\\
+\item
+  The ML model assigns a risk score (e.g., 0.95 = high risk).\\
+\item
+  High-risk cases are prioritized; low-risk cases are auto-approved.\\
+\item
+  Analysts focus on 10--15 high-risk alerts/day instead of 40 low-value
+  ones.
+\end{enumerate}
+
+\subsubsection{\texorpdfstring{\textbf{Conclusion}}{Conclusion}}\label{conclusion}
+
+By automating data collection and deploying an ML model, the solution
+reduces review time by \textbf{60--70\%}, clears backlogs, and adapts to
+evolving fraud patterns through continuous monitoring. This end-to-end
+pipeline transforms a reactive process into a proactive, scalable
+system.
+
+\end{document}
